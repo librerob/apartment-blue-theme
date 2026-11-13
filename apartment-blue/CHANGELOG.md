@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Make the title button rims easier to see.
+- Brighten the title button rims. Hover for a red close button, amber maximize and restore buttons, or a sage green minimize button.
 - Add small icons for Caja’s Places sidebar.
 
 ## 0.5.0
