@@ -115,7 +115,35 @@ else
 fi
 import -window root evidence/desktop.png
 import -window root -crop "${width}x${top}+${x}+$((y - top))" +repage evidence/native-frame.png
-xdotool mousemove "$((x + width - 16 * GDK_SCALE))" "$((y - expected / 2))"
+if [[ $DESKTOP == mate ]]; then
+  offset=15
+  stride=24
+else
+  offset=13
+  stride=24
+fi
+center_y=$((y - expected / 2))
+for item in '0 close #e39089' '1 maximize #c3a173' '2 minimize #9bb09d'; do
+  read -r index control color <<< "$item"
+  center_x=$((x + width - (offset + stride * index) * GDK_SCALE))
+  crop="$((14 * GDK_SCALE))x$((14 * GDK_SCALE))+$((center_x - 7 * GDK_SCALE))+$((center_y - 7 * GDK_SCALE))"
+  # Probe the first physical pixel of each outermost logical pixel.
+  for dx in "$((-12 * GDK_SCALE))" "$((11 * GDK_SCALE))"; do
+    for dy in "$((-12 * GDK_SCALE))" "$((11 * GDK_SCALE))"; do
+      xdotool mousemove "$((center_x + dx))" "$((center_y + dy))"
+      sleep .2
+      pixels=$(import -window root -crop "$crop" +repage png:- |
+        convert - -fuzz 18% -fill black +opaque "$color" -fill white -opaque "$color" \
+          -colorspace gray -format '%[fx:round(mean*w*h)]' info:)
+      if (( pixels < GDK_SCALE )); then
+        echo "$DESKTOP $control misses the 24 × 24 logical px hit area at $dx,$dy" >&2
+        exit 1
+      fi
+    done
+  done
+  echo "$DESKTOP hit area $control: 24 × 24 logical px checked"
+done
+xdotool mousemove "$((x + width - offset * GDK_SCALE))" "$center_y"
 sleep .4
 import -window root evidence/hover.png
 wmctrl -ir "$(printf '0x%x' "$native")" -b add,maximized_vert,maximized_horz

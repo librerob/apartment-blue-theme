@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.2
+
+- Enlarge the graphite window buttons and sharpen their symbols.
+- Give the window buttons at least 24 × 24 logical pixels of click area.
+
 ## 0.5.1
 
 - Use the same flat graphite circles for resting, hovered, pressed, and unfocused window buttons.

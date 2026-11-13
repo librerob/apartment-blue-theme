@@ -19,7 +19,7 @@ frame() {
 }
 
 aim() {
-  button_x=$((right_edge - (17 + 28 * $1) * SCALE))
+  button_x=$((right_edge - (17 + 30 * $1) * SCALE))
   button_y=$((y + 16 * SCALE))
   xdotool mousemove "$button_x" "$button_y"
 }
@@ -109,20 +109,49 @@ for kind in muffin gtk3 gtk4 adw; do
   xprop -id "$window" _NET_FRAME_EXTENTS _GTK_FRAME_EXTENTS >>"evidence/chrome-$kind-frame.log"
   frame
   capture ""
-  for item in '0 close #cf8a8a' '1 maximize #c3a173' '2 minimize #9bb09d'; do
+  for item in '0 close #e39089' '1 maximize #c3a173' '2 minimize #9bb09d'; do
     read -r index control color <<< "$item"
     aim "$index"
     expect_glyph "evidence/chrome-$kind.png" hidden
     sleep 0.35
     capture "-$control-hover"
     expect_hover_color "evidence/chrome-$kind-$control-hover.png" "$color"
+    if [ "$kind" = muffin ]; then
+      for dx in "$((-12 * SCALE))" "$((12 * SCALE - 1))"; do
+        for dy in "$((-12 * SCALE))" "$((12 * SCALE - 1))"; do
+          xdotool mousemove "$((button_x + dx))" "$((button_y + dy))"
+          sleep .2
+          import -window root "evidence/hit-$kind-$control.png"
+          if ! expect_hover_color "evidence/hit-$kind-$control.png" "$color"; then
+            echo "$kind $control misses at $dx,$dy physical px"
+            exit 1
+          fi
+        done
+      done
+      echo "$kind hit area $control: 24 × 24 logical px checked"
+      aim "$index"
+    fi
   done
-  xdotool click 1
+  xdotool mousedown 1
+  sleep .3
+  capture "-pressed"
+  xdotool mouseup 1
   wait_for_state _NET_WM_STATE_HIDDEN yes
   xdotool windowactivate --sync "$window"
   wait_for_state _NET_WM_STATE_HIDDEN no
   sleep 0.4
   frame
+  if [[ "$kind" = muffin || "$kind" = gtk3 ]]; then
+    /usr/bin/python3 tests/chrome-probe.py muffin 'Focus target' >evidence/focus-target.log 2>&1 &
+    focus_pid=$!
+    focus_window=$(timeout 15 xdotool search --sync --onlyvisible --name '^Focus target$')
+    xdotool windowmove "$focus_window" 225 530 windowactivate --sync "$focus_window"
+    xdotool mousemove 1700 825
+    sleep .5
+    capture "-unfocused"
+    kill "$focus_pid"
+    xdotool windowactivate --sync "$window"
+  fi
   aim 1
   xdotool click 1
   wait_for_state _NET_WM_STATE_MAXIMIZED_VERT yes
@@ -151,6 +180,12 @@ for kind in muffin gtk3 gtk4 adw; do
   cat "evidence/chrome-$kind.log"
   if [ "$kind" != muffin ]; then
     grep -Fx "$kind title bar: 32 logical px" "evidence/chrome-$kind.log"
+    for control in close maximize minimize; do
+      awk -v control="$control" '
+        $1 == "hit" && $2 == "area" && $3 == control && $4 >= 24 && $5 >= 24 { found=1 }
+        END { exit !found }
+      ' "evidence/chrome-$kind.log" || { echo "$kind $control hit area is smaller than 24 × 24"; exit 1; }
+    done
   fi
   if grep -Ei 'theme parser error|failed to import|error loading image' "evidence/chrome-$kind.log"; then
     exit 1

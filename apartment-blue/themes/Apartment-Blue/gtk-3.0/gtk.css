@@ -53,8 +53,8 @@ window.csd decoration {
 
 /* Muffin uses the GTK default-decoration node for server-side title bars. */
 window.ssd headerbar.default-decoration button.titlebutton {
-  min-width: 22px;
-  min-height: 22px;
+  min-width: 24px;
+  min-height: 24px;
   margin: 0;
   padding: 0;
   border: 0;
