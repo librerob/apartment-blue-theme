@@ -48,7 +48,7 @@ jobs:
       - name: Install Cinnamon and test apps
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends cinnamon nemo gnome-terminal celluloid dconf-cli dbus-x11 xvfb xauth xdotool x11-utils x11-xserver-utils imagemagick libnotify-bin gir1.2-gtk-3.0 gir1.2-gtk-4.0 gir1.2-adw-1 adwaita-icon-theme librsvg2-common cinnamon-settings-daemon xdg-user-dirs
+          sudo apt-get install -y --no-install-recommends cinnamon nemo gnome-terminal celluloid dconf-cli dbus-x11 xvfb xauth xdotool x11-utils x11-xserver-utils imagemagick libnotify-bin gir1.2-gtk-3.0 gir1.2-gtk-4.0 gir1.2-adw-1 adwaita-icon-theme librsvg2-common cinnamon-settings-daemon xdg-user-dirs fonts-noto-core
       - run: python3 install.py
       - name: Open the desktop and capture screenshots
         run: |
