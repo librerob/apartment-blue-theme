@@ -37,7 +37,7 @@
 
 .caja-navigation-window toolbar button.flat:checked,
 .thunar toolbar button.flat:checked {
-  background-color: @apartment_selection;
+  background-color: @apartment_raised;
   background-image: none;
   color: @apartment_selected_text;
 }
@@ -47,7 +47,7 @@
 .mate-panel-menu-bar menubar,
 PanelApplet,
 .xfce4-panel.panel {
-  background-color: #202123;
+  background-color: #292c30;
   background-image: none;
   color: @apartment_text;
 }
@@ -68,7 +68,7 @@ PanelApplet button:not(:disabled):hover,
 #clock-applet-button:not(:disabled):hover,
 #tasklist-button:not(:disabled):hover,
 .xfce4-panel.panel button:not(:disabled):hover {
-  background: #414346;
+  background: #373a3e;
 }
 
 .mate-panel-menu-bar button:not(:disabled):checked,
@@ -87,6 +87,6 @@ PanelApplet button:not(:disabled):active,
 
 #whiskermenu-window,
 .mintmenu {
-  background-color: #27292c;
+  background-color: #303337;
   color: @apartment_text;
 }
