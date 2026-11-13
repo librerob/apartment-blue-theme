@@ -127,8 +127,9 @@ for item in '0 close #e39089' '1 maximize #c3a173' '2 minimize #9bb09d'; do
   read -r index control color <<< "$item"
   center_x=$((x + width - (offset + stride * index) * GDK_SCALE))
   crop="$((14 * GDK_SCALE))x$((14 * GDK_SCALE))+$((center_x - 7 * GDK_SCALE))+$((center_y - 7 * GDK_SCALE))"
-  for dx in "$((-12 * GDK_SCALE))" "$((12 * GDK_SCALE - 1))"; do
-    for dy in "$((-12 * GDK_SCALE))" "$((12 * GDK_SCALE - 1))"; do
+  # Probe the first physical pixel of each outermost logical pixel.
+  for dx in "$((-12 * GDK_SCALE))" "$((11 * GDK_SCALE))"; do
+    for dy in "$((-12 * GDK_SCALE))" "$((11 * GDK_SCALE))"; do
       xdotool mousemove "$((center_x + dx))" "$((center_y + dy))"
       sleep .2
       pixels=$(import -window root -crop "$crop" +repage png:- |
