@@ -145,7 +145,7 @@ for kind in muffin gtk3 gtk4 adw; do
     /usr/bin/python3 tests/chrome-probe.py muffin 'Focus target' >evidence/focus-target.log 2>&1 &
     focus_pid=$!
     focus_window=$(timeout 15 xdotool search --sync --onlyvisible --name '^Focus target$')
-    xdotool windowmove "$focus_window" 1100 150 windowactivate --sync "$focus_window"
+    xdotool windowmove "$focus_window" 225 530 windowactivate --sync "$focus_window"
     xdotool mousemove 1700 825
     sleep .5
     capture "-unfocused"
