@@ -1,4 +1,4 @@
-/* The 14px artwork sits inside a 24px title button. */
+/* The 16px artwork sits inside a 24px title button. */
 button.titlebutton.minimize,
 button.titlebutton.maximize,
 button.titlebutton.close,
@@ -10,14 +10,14 @@ windowcontrols button.close {
   margin: 0;
   padding: 0;
   border: 0;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: none;
   transition: none;
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("titlebuttons/rest.svg");
-  background-size: 14px 14px;
+  background-size: 16px 16px;
   color: transparent;
   -gtk-icon-shadow: none;
 }
