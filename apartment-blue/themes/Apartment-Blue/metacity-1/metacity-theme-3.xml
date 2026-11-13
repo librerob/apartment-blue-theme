@@ -13,11 +13,11 @@
     <distance name="bottom_height" value="2" />
     <distance name="left_titlebar_edge" value="5" />
     <distance name="right_titlebar_edge" value="5" />
-    <distance name="button_width" value="22" />
-    <distance name="button_height" value="22" />
+    <distance name="button_width" value="24" />
+    <distance name="button_height" value="24" />
     <distance name="title_vertical_pad" value="0" />
     <border name="title_border" left="4" right="4" top="0" bottom="0" />
-    <border name="button_border" left="0" right="0" top="5" bottom="5" />
+    <border name="button_border" left="0" right="0" top="4" bottom="4" />
   </frame_geometry>
   <frame_geometry name="maximized" parent="normal" rounded_top_left="0" rounded_top_right="0">
     <distance name="left_width" value="0" />
@@ -51,55 +51,55 @@
     <title x="(width - title_width) / 2" y="(height - title_height) / 2" color="#a6b4c2" />
   </draw_ops>
   <draw_ops name="rest">
-    <image filename="../titlebuttons/rest.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="../titlebuttons/rest.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="unfocused">
-    <image filename="../titlebuttons/unfocused.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="../titlebuttons/unfocused.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="menu">
-    <image filename="menu.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="menu.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="minimize">
-    <image filename="minimize.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="minimize.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="maximize">
-    <image filename="maximize.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="maximize.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="close">
-    <image filename="close.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="close.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="shade">
-    <image filename="shade.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="shade.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="unshade">
-    <image filename="unshade.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="unshade.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="above">
-    <image filename="above.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="above.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="unabove">
-    <image filename="unabove.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="unabove.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="stick">
-    <image filename="stick.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="stick.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="unstick">
-    <image filename="unstick.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="unstick.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="restore">
-    <image filename="restore.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="restore.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="close_pressed">
-    <image filename="../titlebuttons/close-pressed.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="../titlebuttons/close-pressed.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="minimize_pressed">
-    <image filename="../titlebuttons/minimize-pressed.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="../titlebuttons/minimize-pressed.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="maximize_pressed">
-    <image filename="../titlebuttons/maximize-pressed.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="../titlebuttons/maximize-pressed.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <draw_ops name="restore_pressed">
-    <image filename="../titlebuttons/restore-pressed.svg" x="(width - 12) / 2" y="(height - 12) / 2" width="12" height="12" />
+    <image filename="../titlebuttons/restore-pressed.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
   </draw_ops>
   <frame_style name="active" geometry="normal">
     <piece position="entire_background" draw_ops="border" />
