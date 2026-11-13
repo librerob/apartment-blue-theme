@@ -150,7 +150,7 @@ timeout 25 xdotool search --sync --onlyvisible --name 'Apartment Blue terminal' 
 sleep 2
 import -window root evidence/terminal.png
 xdotool mousemove "$((14 * SCALE))" "$((1080 - 12 * SCALE))" click 1
-sleep 1
+sleep 3
 import -window root evidence/menu.png
 menu_region="150x200+0+$((1080 - 250 * SCALE))"
 convert evidence/terminal.png -crop "$menu_region" +repage evidence/menu-closed.png
