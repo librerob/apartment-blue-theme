@@ -19,7 +19,9 @@ frame() {
 }
 
 aim() {
-  button_x=$((right_edge - (17 + 30 * $1) * SCALE))
+  local inset=17
+  if [ "$kind" = muffin ]; then inset=16; fi
+  button_x=$((right_edge - (inset + 30 * $1) * SCALE))
   button_y=$((y + 16 * SCALE))
   xdotool mousemove "$button_x" "$button_y"
 }
@@ -122,7 +124,10 @@ for kind in muffin gtk3 gtk4 adw; do
           xdotool mousemove "$((button_x + dx))" "$((button_y + dy))"
           sleep .2
           import -window root "evidence/hit-$kind-$control.png"
-          expect_hover_color "evidence/hit-$kind-$control.png" "$color"
+          if ! expect_hover_color "evidence/hit-$kind-$control.png" "$color"; then
+            echo "$kind $control misses at $dx,$dy physical px"
+            exit 1
+          fi
         done
       done
       echo "$kind hit area $control: 24 × 24 logical px checked"
