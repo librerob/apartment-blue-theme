@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Make the title button rims easier to see.
+- Add small icons for Caja’s Places sidebar.
+
 ## 0.5.0
 
 - Add Marco and Xfwm window borders with the same graphite buttons as the GTK title bars.
