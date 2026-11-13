@@ -12,19 +12,7 @@
   </defs>
   <rect width="22" height="32" fill="url(#bar)" />
   <g transform="translate(5 10)">
-    <defs>
-      <linearGradient id="face" x2="0" y2="1">
-        <stop stop-color="#262728" />
-        <stop offset="1" stop-color="#171819" />
-      </linearGradient>
-      <linearGradient id="rim" x2="0" y2="1">
-        <stop offset=".45" stop-color="#6a6c6d" stop-opacity="0" />
-        <stop offset="1" stop-color="#6a6c6d" />
-      </linearGradient>
-    </defs>
-    <circle cx="6" cy="6.45" r="5.4" fill="url(#rim)" />
-    <circle cx="6" cy="5.8" r="5.25" fill="#141516" />
-    <circle cx="6" cy="5.8" r="4.02" fill="url(#face)" />
-    <path d="m3.5 7 2.5-2.5L8.5 7" fill="none" stroke="#e1e2e3" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="6" cy="6" r="4.75" fill="#242527" stroke="#171819" stroke-width="1" />
+    <path d="m3.5 7 2.5-2.5L8.5 7" fill="none" stroke="#c5c6c7" stroke-width="1.4" stroke-linecap="butt" stroke-linejoin="miter" />
   </g>
 </svg>
