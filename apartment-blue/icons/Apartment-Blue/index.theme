@@ -3,7 +3,7 @@ Name=Apartment Blue
 Comment=Beveled slate-blue desktop and monochrome toolbar icons
 Inherits=Mint-X,Adwaita,hicolor
 Example=folder
-Directories=scalable/places,scalable/devices,scalable/status,scalable/apps,scalable/mimetypes,16x16/actions,16x16/places,16x16/devices
+Directories=16x16/places,16x16/devices,16x16/actions,scalable/places,scalable/devices,scalable/status,scalable/apps,scalable/mimetypes
 
 [scalable/places]
 Size=48
