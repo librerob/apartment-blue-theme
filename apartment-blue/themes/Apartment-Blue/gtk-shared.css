@@ -78,13 +78,6 @@ row:selected, .view:selected {
   border-radius: 6px;
 }
 
-button.suggested-action {
-  color: @apartment_text;
-  background-color: @apartment_raised;
-  background-image: none;
-  border-color: transparent;
-}
-
 /* Keep selected checks and radios legible with neutral fills. */
 check:checked:not(:disabled), check:indeterminate:not(:disabled),
 radio:checked:not(:disabled), radio:indeterminate:not(:disabled),

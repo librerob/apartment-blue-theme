@@ -42,6 +42,22 @@ headerbar button.flat:not(.suggested-action):not(.destructive-action):checked {
   background-color: #373a3e;
 }
 
+button.suggested-action {
+  background-color: #3a3e43;
+  background-image: none;
+  color: #e3e6e9;
+  border-color: transparent;
+  border-radius: 6px;
+}
+
+button.suggested-action:hover {
+  background-color: #42464b;
+}
+
+button.suggested-action:active {
+  background-color: #292c30;
+}
+
 popover > contents {
   background-color: #303337;
   color: #e3e6e9;
