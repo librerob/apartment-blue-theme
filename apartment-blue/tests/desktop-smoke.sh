@@ -14,7 +14,6 @@ cat > "$HOME/.config/gtk-3.0/settings.ini" <<'GTK'
 [Settings]
 gtk-theme-name=Apartment-Blue
 gtk-icon-theme-name=Apartment-Blue
-gtk-font-name=Noto Sans 10
 GTK
 xdg-user-dirs-update
 for folder in Desktop Documents Downloads Music Pictures Public Templates Videos; do
@@ -28,8 +27,6 @@ done
 gsettings set org.cinnamon.desktop.interface scaling-factor "$SCALE"
 gsettings set org.cinnamon.theme name Apartment-Blue
 gsettings set org.cinnamon.desktop.interface gtk-theme Apartment-Blue
-gsettings set org.cinnamon.desktop.interface font-name 'Noto Sans 10'
-gsettings set org.cinnamon.desktop.wm.preferences titlebar-font 'Noto Sans Bold 10'
 gsettings set org.cinnamon.desktop.interface icon-theme Apartment-Blue
 gsettings set org.gnome.desktop.interface gtk-theme Apartment-Blue
 csd-xsettings >evidence/xsettings.log 2>&1 &
@@ -62,6 +59,12 @@ if [ "$SCALE" = 2 ]; then
 fi
 
 bash tests/chrome-smoke.sh
+
+# Set the preview font in this disposable desktop session after the geometry tests.
+gsettings set org.cinnamon.desktop.interface font-name 'Noto Sans 10'
+gsettings set org.cinnamon.desktop.wm.preferences titlebar-font 'Noto Sans Bold 10'
+printf 'gtk-font-name=Noto Sans 10\n' >>"$HOME/.config/gtk-3.0/settings.ini"
+sleep 1
 
 nemo --no-desktop "$preview_home" >evidence/nemo.log 2>&1 &
 timeout 25 xdotool search --sync --onlyvisible --class nemo windowmove 150 140 windowactivate --sync
