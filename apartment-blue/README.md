@@ -1,6 +1,6 @@
 # Apartment Blue
 
-A dark theme for Cinnamon, MATE and Xfce with charcoal title bars, recessed window buttons and blue folder icons. The package also includes a wallpaper. See [NOTICE.md](NOTICE.md) for artwork credits.
+A dark theme for Cinnamon, MATE and Xfce with charcoal title bars, graphite window buttons and blue folder icons. See [NOTICE.md](NOTICE.md) for artwork credits.
 
 ## Install
 

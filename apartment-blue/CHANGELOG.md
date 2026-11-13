@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 0.5.1
 
-- Brighten the title button rims. Hover for a red close button, amber maximize and restore buttons, or a sage green minimize button.
+- Use the same flat graphite circles for resting, hovered, pressed, and unfocused window buttons.
+- Tint the glyph and outline on hover.
 - Add small icons for Caja’s Places sidebar.
 
 ## 0.5.0
