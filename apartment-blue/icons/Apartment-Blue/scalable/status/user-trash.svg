@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="steel" x2="0" y2="1"><stop stop-color="#b1becb"/><stop offset="1" stop-color="#46576a"/></linearGradient>
+    <linearGradient id="blue" x2="0" y2="1"><stop stop-color="#729fc5"/><stop offset=".44" stop-color="#51799e"/><stop offset="1" stop-color="#2e4b69"/></linearGradient>
+    <linearGradient id="glass" x2="0" y2="1"><stop stop-color="#274a62"/><stop offset="1" stop-color="#09131f"/></linearGradient>
+  </defs>
+  <path d="M12 16h24l-3 24H15z" fill="url(#steel)" stroke="#263544" stroke-width="2"/>
+  <path d="M19 20l1 16m4-16v16m5-16-1 16" stroke="#263544" opacity=".65"/>
+  <path d="M10 14h28v4H10z" fill="url(#steel)" stroke="#263544" stroke-width="2"/>
+  <path d="M20 14v-3h8v3" fill="none" stroke="#8495a6" stroke-width="2"/>
+</svg>

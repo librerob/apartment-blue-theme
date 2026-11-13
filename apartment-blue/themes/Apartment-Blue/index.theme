@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Apartment Blue
+Comment=Charcoal controls and slate-blue accents
+
+[X-GNOME-Metatheme]
+GtkTheme=Apartment-Blue
+MetacityTheme=Apartment-Blue
+IconTheme=Apartment-Blue

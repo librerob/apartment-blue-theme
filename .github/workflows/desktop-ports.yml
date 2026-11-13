@@ -1,0 +1,55 @@
+name: MATE and Xfce smoke test
+
+on:
+  pull_request:
+    paths:
+      - apartment-blue/**
+      - .github/workflows/desktop-ports.yml
+  push:
+    branches: [main]
+    paths:
+      - apartment-blue/**
+      - .github/workflows/desktop-ports.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  desktop:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        desktop: [mate, xfce]
+        scale: [1, 2]
+    defaults:
+      run:
+        working-directory: apartment-blue
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install desktop test dependencies
+        env:
+          DESKTOP: ${{ matrix.desktop }}
+        run: |
+          sudo apt-get update -qq
+          case "$DESKTOP" in
+            mate) packages='marco mate-panel mate-settings-daemon caja mate-terminal' ;;
+            xfce) packages='xfwm4 xfce4-settings xfce4-panel xfce4-whiskermenu-plugin xfce4-notifyd thunar xfce4-terminal' ;;
+          esac
+          sudo apt-get install -y --no-install-recommends $packages xvfb xauth dbus-x11 x11-utils x11-apps xdotool imagemagick gir1.2-gtk-3.0 librsvg2-common adwaita-icon-theme xdg-user-dirs wmctrl
+      - run: python3 tools/build.py --check
+      - name: Load the theme and capture the desktop
+        env:
+          DESKTOP: ${{ matrix.desktop }}
+          GDK_SCALE: ${{ matrix.scale }}
+        run: |
+          sudo hostname Robin
+          mkdir -p evidence
+          xvfb-run -a -s '-screen 0 1920x1080x24' dbus-run-session -- bash tests/desktop-ports.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.desktop }}-scale-${{ matrix.scale }}
+          path: apartment-blue/evidence/

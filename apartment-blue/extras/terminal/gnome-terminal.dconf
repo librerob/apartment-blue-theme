@@ -1,0 +1,12 @@
+[/]
+visible-name='Apartment Blue'
+use-theme-colors=false
+cursor-colors-set=true
+highlight-colors-set=true
+background-color='#080b0e'
+foreground-color='#c4cbd1'
+cursor-background-color='#bccdda'
+cursor-foreground-color='#080b0e'
+highlight-background-color='#345471'
+highlight-foreground-color='#f4f7fa'
+palette=['#37434f', '#e48488', '#9bbb92', '#dab578', '#8aafd0', '#b4a0c5', '#85bfc0', '#c4cbd1', '#7c8894', '#f3a2a3', '#b6d6ad', '#efd09b', '#abd1ef', '#d2b9e5', '#a5dddd', '#edf1f4']

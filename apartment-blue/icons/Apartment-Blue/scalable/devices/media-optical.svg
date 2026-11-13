@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="steel" x2="0" y2="1"><stop stop-color="#b1becb"/><stop offset="1" stop-color="#46576a"/></linearGradient>
+    <linearGradient id="blue" x2="0" y2="1"><stop stop-color="#729fc5"/><stop offset=".44" stop-color="#51799e"/><stop offset="1" stop-color="#2e4b69"/></linearGradient>
+    <linearGradient id="glass" x2="0" y2="1"><stop stop-color="#274a62"/><stop offset="1" stop-color="#09131f"/></linearGradient>
+  </defs>
+  <circle cx="24" cy="24" r="18" fill="url(#steel)" stroke="#172733" stroke-width="2"/><path d="M24 6a18 18 0 0 1 17 11l-13 5-8-3z" fill="#accee4" opacity=".6"/><path d="M9 33l12-8 3 5-7 10z" fill="#c0ceda" opacity=".64"/><circle cx="24" cy="24" r="5" fill="#15283a" stroke="#bbcbd9"/>
+</svg>

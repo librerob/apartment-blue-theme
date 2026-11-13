@@ -1,0 +1,177 @@
+.panel-top, .panel-bottom, .panel-left, .panel-right {
+  background-gradient-direction: vertical;
+  background-gradient-start: #333436;
+  background-gradient-end: #202123;
+  border: 0;
+  box-shadow: inset 0 1px #555659;
+  color: #e0e6eb;
+}
+
+.panel-top { border-bottom: 1px solid #111214; }
+.panel-bottom { border-top: 1px solid #111214; }
+.panel-left { border-right: 1px solid #111214; }
+.panel-right { border-left: 1px solid #111214; }
+
+.applet-box, .window-list-item-box, .grouped-window-list-item-box {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #e0e6eb;
+}
+
+.applet-label, .applet-icon, .system-status-icon {
+  color: #e0e6eb;
+}
+
+.system-status-icon.warning { color: #e1be7a; }
+.system-status-icon.error { color: #f19a98; }
+
+.applet-box:hover, .window-list-item-box:hover, .grouped-window-list-item-box:hover {
+  background-color: #393c40;
+  border-color: #55595e;
+}
+
+.applet-box:checked,
+.window-list-item-box:active, .window-list-item-box:checked, .window-list-item-box:focus,
+.grouped-window-list-item-box:active, .grouped-window-list-item-box:checked, .grouped-window-list-item-box:focus {
+  background-color: #345471;
+  border-color: #557895;
+  color: #f4f7fa;
+}
+
+.popup-menu, .popup-menu-content {
+  color: #e0e6eb;
+}
+
+.popup-menu-content {
+  background-color: #27292c;
+  border: 1px solid #111214;
+  border-radius: 4px;
+}
+
+.popup-menu-boxpointer {
+  -arrow-background-color: #27292c;
+  -arrow-border-color: #111214;
+  -arrow-border-width: 1px;
+  -arrow-border-radius: 4px;
+}
+
+.popup-menu-item:active, .popup-menu-item:hover, .popup-menu-item:focus,
+.popup-menu-item:checked,
+.menu-application-button-selected, .menu-category-button-selected,
+.menu-favorites-button:hover, .calendar-day-base:hover {
+  background-color: #345471;
+  color: #f4f7fa;
+  border-radius: 3px;
+}
+
+.popup-sub-menu, .menu-applications-box, .menu-favorites-box {
+  background-color: #222427;
+}
+
+#menu-search-entry, #appmenu-search-entry, .run-dialog-entry {
+  background-color: #171e25;
+  background-image: none;
+  color: #e0e6eb;
+  border: 1px solid #111214;
+  border-radius: 3px;
+}
+
+#menu-search-entry:focus, #appmenu-search-entry:focus, .run-dialog-entry:focus {
+  border-color: #8bb6dc;
+}
+
+.calendar-today {
+  background-color: #345471;
+  color: #f4f7fa;
+  border-radius: 3px;
+}
+
+#notification, .notification, .modal-dialog, .switcher-list, .osd-window {
+  color: #e0e6eb;
+  background-color: #202830;
+  border: 1px solid #111214;
+  border-radius: 4px;
+}
+
+#notification {
+  width: 30em;
+  padding: 10px;
+  spacing-rows: 8px;
+  spacing-columns: 10px;
+  margin-from-right-edge-of-screen: 16px;
+}
+
+StTooltip StLabel {
+  color: #f4f7fa;
+  background-color: #171e25;
+  border: 1px solid #494c50;
+  border-radius: 3px;
+  padding: 4px 6px;
+}
+
+/* The menu used by newer Cinnamon versions has its own appmenu classes. */
+.appmenu-application-button:hover, .appmenu-application-button-selected,
+.appmenu-category-button:hover, .appmenu-category-button-selected {
+  color: #f4f7fa;
+  background-color: #345471;
+  border-radius: 3px;
+}
+
+.calendar-month-label, .calendar-day-base, .calendar-change-month-back, .calendar-change-month-forward {
+  color: #e0e6eb;
+}
+
+.calendar-other-month-day, .calendar-day-heading {
+  color: #a6b4c2;
+}
+
+.workspace-button {
+  color: #e0e6eb;
+  background-color: #202830;
+  border: 1px solid #465968;
+  border-radius: 3px;
+}
+
+.workspace-button:hover, .workspace-button:outlined {
+  background-color: #345471;
+  border-color: #8bb6dc;
+}
+
+.window-list-preview, .grouped-window-list-thumbnail-menu {
+  color: #e0e6eb;
+  background-color: #27292c;
+  border: 1px solid #111214;
+  border-radius: 4px;
+}
+
+.window-list-item-box .progress, .grouped-window-list-item-box .progress {
+  background-color: #8bb6dc;
+}
+
+StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
+  background-image: none;
+  background-color: #585d62;
+  border-radius: 3px;
+}
+
+StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
+  background-color: #7b8187;
+}
+
+.popup-menu-item:insensitive {
+  color: #939aa2;
+}
+
+.popup-separator-menu-item {
+  -gradient-height: 1px;
+  -gradient-start: #42454a;
+  -gradient-end: #42454a;
+  -margin-horizontal: 8px;
+}
+
+.grouped-window-list-thumbnail-menu .item-box:hover,
+.grouped-window-list-thumbnail-menu .item-box:focus {
+  background-color: #393c40;
+  color: #f4f7fa;
+  border-radius: 3px;
+}

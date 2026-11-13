@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+/apartment-blue/dist/
+/apartment-blue/evidence/

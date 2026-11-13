@@ -1,0 +1,73 @@
+/* The 12px artwork sits inside a 22px title button. */
+button.titlebutton.minimize,
+button.titlebutton.maximize,
+button.titlebutton.close,
+windowcontrols button.minimize,
+windowcontrols button.maximize,
+windowcontrols button.close {
+  min-width: 22px;
+  min-height: 22px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: none;
+  transition: none;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("titlebuttons/rest.svg");
+  background-size: 12px 12px;
+  color: transparent;
+  -gtk-icon-shadow: none;
+}
+
+windowcontrols button.minimize > image,
+windowcontrols button.maximize > image,
+windowcontrols button.close > image {
+  padding: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  opacity: 0;
+}
+
+button.titlebutton.minimize:hover,
+headerbar windowcontrols button.minimize:hover,
+button.titlebutton.minimize:focus,
+headerbar windowcontrols button.minimize:focus,
+button.titlebutton.minimize:active,
+headerbar windowcontrols button.minimize:active {
+  background-color: transparent;
+  background-image: url("titlebuttons/minimize.svg"), url("titlebuttons/highlight.svg");
+}
+
+button.titlebutton.maximize:hover,
+headerbar windowcontrols button.maximize:hover,
+button.titlebutton.maximize:focus,
+headerbar windowcontrols button.maximize:focus,
+button.titlebutton.maximize:active,
+headerbar windowcontrols button.maximize:active {
+  background-color: transparent;
+  background-image: url("titlebuttons/maximize.svg"), url("titlebuttons/highlight.svg");
+}
+
+.maximized button.titlebutton.maximize:hover,
+.maximized headerbar windowcontrols button.maximize:hover,
+.maximized button.titlebutton.maximize:focus,
+.maximized headerbar windowcontrols button.maximize:focus,
+.maximized button.titlebutton.maximize:active,
+.maximized headerbar windowcontrols button.maximize:active {
+  background-color: transparent;
+  background-image: url("titlebuttons/restore.svg"), url("titlebuttons/highlight.svg");
+}
+
+button.titlebutton.close:hover,
+headerbar windowcontrols button.close:hover,
+button.titlebutton.close:focus,
+headerbar windowcontrols button.close:focus,
+button.titlebutton.close:active,
+headerbar windowcontrols button.close:active {
+  background-color: transparent;
+  background-image: url("titlebuttons/close.svg"), url("titlebuttons/highlight.svg");
+}

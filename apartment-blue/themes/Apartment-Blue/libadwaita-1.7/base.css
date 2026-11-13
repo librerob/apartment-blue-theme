@@ -1,0 +1,5 @@
+@import url("resource:///org/gnome/Adwaita/styles/base.css");
+@import url("../chrome.css");
+@import url("../window-controls.css");
+
+@import url("../gtk4-chrome.css");

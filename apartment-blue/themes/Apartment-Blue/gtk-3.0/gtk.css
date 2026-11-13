@@ -1,0 +1,86 @@
+@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
+@import url("../gtk-shared.css");
+@import url("../chrome.css");
+@import url("../window-controls.css");
+@import url("desktop.css");
+
+@define-color theme_bg_color #202830;
+@define-color theme_fg_color #e0e6eb;
+@define-color theme_base_color #171e25;
+@define-color theme_text_color #e0e6eb;
+@define-color theme_selected_bg_color #345471;
+@define-color theme_selected_fg_color #f4f7fa;
+
+/* Keep the bars on one surface and the two browsing panes on another. */
+.nemo-window menubar,
+.nemo-window toolbar,
+.nemo-window toolbar.primary-toolbar,
+.nemo-window statusbar {
+  background-color: @apartment_surface;
+  background-image: none;
+  color: @apartment_text;
+}
+
+.nemo-window toolbar.primary-toolbar button.flat:not(:disabled):hover {
+  background-color: shade(@apartment_surface, 1.24);
+  background-image: none;
+}
+
+.nemo-window toolbar.primary-toolbar button.flat:checked,
+.nemo-window toolbar.primary-toolbar button.flat:active {
+  background-color: @apartment_selection;
+  background-image: none;
+  color: @apartment_selected_text;
+}
+
+.nemo-window .sidebar, .nemo-window .sidebar treeview.view {
+  background-color: @apartment_view;
+}
+
+.nemo-window paned > separator {
+  background-color: @apartment_surface;
+  background-image: none;
+}
+
+.nemo-window .sidebar treeview.view:selected, .nemo-window .view:selected {
+  background-color: @apartment_selection;
+  color: @apartment_selected_text;
+}
+
+window.csd decoration {
+  border-radius: 4px 4px 0 0;
+}
+
+/* Muffin uses the GTK default-decoration node for server-side title bars. */
+window.ssd headerbar.default-decoration button.titlebutton {
+  min-width: 22px;
+  min-height: 22px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+window.ssd headerbar.default-decoration button.titlebutton image {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+menu {
+  background-color: #27292c;
+  color: @apartment_text;
+  border: 1px solid #111214;
+}
+
+menuitem:hover, menuitem:focus, modelbutton:hover, modelbutton:focus {
+  background-color: @apartment_selection;
+  color: @apartment_selected_text;
+}
+
+menuitem:disabled {
+  color: #939aa2;
+}
+
+menu separator {
+  background-color: #42454a;
+}

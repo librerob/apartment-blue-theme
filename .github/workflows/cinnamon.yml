@@ -1,0 +1,62 @@
+name: Cinnamon smoke test
+
+on:
+  push:
+    paths:
+      - apartment-blue/**
+      - .github/workflows/cinnamon.yml
+  pull_request:
+    paths:
+      - apartment-blue/**
+      - .github/workflows/cinnamon.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: apartment-blue
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/build.py --check
+      - run: python3 -m unittest discover -s tests
+      - run: python3 tools/package.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: install-zip
+          path: apartment-blue/dist/*.zip
+
+  desktop:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        scale: [1, 2]
+    env:
+      SCALE: ${{ matrix.scale }}
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    defaults:
+      run:
+        working-directory: apartment-blue
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Cinnamon and test apps
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends cinnamon nemo gnome-terminal celluloid dconf-cli dbus-x11 xvfb xauth xdotool x11-utils imagemagick gir1.2-gtk-3.0 gir1.2-gtk-4.0 gir1.2-adw-1 adwaita-icon-theme librsvg2-common cinnamon-settings-daemon xdg-user-dirs
+      - run: python3 install.py
+      - name: Open the desktop and capture screenshots
+        run: |
+          sudo hostname Robin
+          mkdir -p evidence
+          xvfb-run -a -s '-screen 0 1920x1080x24' dbus-run-session -- bash tests/desktop-smoke.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cinnamon-scale-${{ matrix.scale }}
+          path: apartment-blue/evidence/

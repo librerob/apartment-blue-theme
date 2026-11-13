@@ -1,0 +1,114 @@
+@define-color apartment_surface #202830;
+@define-color apartment_view #171e25;
+@define-color apartment_text #e0e6eb;
+@define-color apartment_muted #a6b4c2;
+@define-color apartment_border #0d1218;
+@define-color apartment_selection #345471;
+@define-color apartment_selected_text #f4f7fa;
+@define-color apartment_focus #8bb6dc;
+
+window, window.background, window.background:backdrop, dialog {
+  background-color: @apartment_surface;
+  color: @apartment_text;
+}
+
+.view, .view:backdrop, textview text, textview text:backdrop {
+  background-color: @apartment_view;
+  color: @apartment_text;
+}
+
+menubar, menubar:backdrop,
+toolbar, toolbar:backdrop, toolbar.primary-toolbar, toolbar.primary-toolbar:backdrop,
+statusbar, statusbar:backdrop,
+actionbar > revealer > box, actionbar > revealer > box:backdrop {
+  background-color: @apartment_surface;
+  background-image: none;
+  color: @apartment_text;
+}
+
+button {
+  border-radius: 3px;
+}
+
+button:not(.titlebutton):not(.close):not(.minimize):not(.maximize):not(.flat):not(.image-button):not(.suggested-action):not(.destructive-action):not(:disabled) {
+  color: @apartment_text;
+  background-image: linear-gradient(to bottom, #36393c, #292b2e);
+  border-color: @apartment_border;
+  box-shadow: inset 0 1px #4b4e51;
+}
+
+button:not(.titlebutton):not(.close):not(.minimize):not(.maximize):not(.flat):not(.image-button):not(.suggested-action):not(.destructive-action):not(:disabled):hover {
+  background-image: linear-gradient(to bottom, #474a4e, #33363a);
+}
+
+button:not(.titlebutton):not(.close):not(.minimize):not(.maximize):not(.flat):not(.image-button):not(.suggested-action):not(.destructive-action):not(:disabled):active,
+button:not(.titlebutton):not(.close):not(.minimize):not(.maximize):not(.flat):not(.image-button):not(.suggested-action):not(.destructive-action):not(:disabled):checked {
+  background-image: none;
+  background-color: @apartment_selection;
+  box-shadow: none;
+}
+
+entry {
+  background-color: @apartment_view;
+  color: @apartment_text;
+  border-color: @apartment_border;
+  border-radius: 3px;
+}
+
+entry:disabled {
+  color: @apartment_muted;
+  background-color: @apartment_surface;
+}
+
+:focus {
+  outline-color: @apartment_focus;
+}
+
+selection, entry selection, textview text selection,
+.view:selected, row:selected, button.suggested-action {
+  color: @apartment_selected_text;
+  background-color: @apartment_selection;
+  background-image: none;
+}
+
+/* Carry the selection color through the toolkit's own control shapes. */
+check:checked:not(:disabled), check:indeterminate:not(:disabled),
+radio:checked:not(:disabled), radio:indeterminate:not(:disabled),
+switch:checked:not(:disabled) {
+  color: @apartment_selected_text;
+  background-color: @apartment_selection;
+  background-image: none;
+  border-color: @apartment_focus;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+switch:checked:not(:disabled) > slider {
+  background-color: @apartment_text;
+  background-image: none;
+  border-color: @apartment_selection;
+  box-shadow: none;
+}
+
+scale:not(:disabled) highlight,
+progressbar:not(:disabled) progress {
+  background-color: @apartment_selection;
+  background-image: none;
+  border-color: @apartment_selection;
+}
+
+entry:focus {
+  border-color: @apartment_focus;
+  box-shadow: none;
+}
+
+scrollbar slider {
+  min-width: 6px;
+  min-height: 6px;
+  border-radius: 3px;
+  background-color: #585d62;
+}
+
+scrollbar slider:hover {
+  background-color: #7b8187;
+}

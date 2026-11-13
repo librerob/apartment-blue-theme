@@ -1,0 +1,92 @@
+/* File browsers use the same surfaces and selection colors as Nemo. */
+.caja-navigation-window .caja-side-pane,
+.thunar .sidebar,
+.caja-navigation-window .caja-side-pane .view,
+.thunar .sidebar .view,
+.caja-navigation-window .caja-side-pane .view:backdrop,
+.thunar .sidebar .view:backdrop {
+  background-color: @apartment_view;
+  color: @apartment_text;
+}
+
+.caja-navigation-window .view .cell:selected,
+.caja-navigation-window .caja-side-pane .view:selected,
+.thunar .sidebar .view:selected,
+.thunar .sidebar .view:active {
+  background-color: @apartment_selection;
+  background-image: none;
+  color: @apartment_selected_text;
+}
+
+.caja-navigation-window entry,
+.caja-desktop entry {
+  caret-color: @apartment_text;
+}
+
+.caja-navigation-window paned > separator,
+.thunar paned > separator {
+  background-color: @apartment_surface;
+  background-image: none;
+}
+
+.caja-navigation-window toolbar button.flat:hover,
+.thunar toolbar button.flat:hover {
+  background-color: shade(@apartment_surface, 1.24);
+  background-image: none;
+}
+
+.caja-navigation-window toolbar button.flat:checked,
+.thunar toolbar button.flat:checked {
+  background-color: @apartment_selection;
+  background-image: none;
+  color: @apartment_selected_text;
+}
+
+/* Scope panel button styling so it cannot reach regular application windows. */
+.mate-panel-menu-bar,
+.mate-panel-menu-bar menubar,
+PanelApplet,
+.xfce4-panel.panel {
+  background-color: #202123;
+  background-image: none;
+  color: @apartment_text;
+}
+
+.mate-panel-menu-bar button:not(:disabled),
+PanelApplet button:not(:disabled),
+#clock-applet-button:not(:disabled),
+#tasklist-button:not(:disabled),
+.xfce4-panel.panel button:not(:disabled) {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: @apartment_text;
+}
+
+.mate-panel-menu-bar button:not(:disabled):hover,
+PanelApplet button:not(:disabled):hover,
+#clock-applet-button:not(:disabled):hover,
+#tasklist-button:not(:disabled):hover,
+.xfce4-panel.panel button:not(:disabled):hover {
+  background: #414346;
+}
+
+.mate-panel-menu-bar button:not(:disabled):checked,
+.mate-panel-menu-bar button:not(:disabled):active,
+PanelApplet button:not(:disabled):checked,
+PanelApplet button:not(:disabled):active,
+#clock-applet-button:not(:disabled):checked,
+#tasklist-button:not(:disabled):checked,
+.xfce4-panel.panel button:not(:disabled):checked,
+.xfce4-panel.panel button:not(:disabled):active,
+.mintmenu:selected,
+.wnck-pager:selected {
+  background: @apartment_selection;
+  color: @apartment_selected_text;
+}
+
+#whiskermenu-window,
+.mintmenu {
+  background-color: #27292c;
+  color: @apartment_text;
+}

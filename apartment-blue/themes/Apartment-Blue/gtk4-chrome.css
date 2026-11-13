@@ -1,0 +1,9 @@
+/* Match the 6px spacing used by GtkHeaderBar and Muffin. */
+windowcontrols {
+  border-spacing: 6px;
+}
+
+/* GTK 4 clips the title bar to the outer window's corners. */
+window.background.csd:not(.maximized):not(.fullscreen) {
+  border-radius: 4px 4px 0 0;
+}

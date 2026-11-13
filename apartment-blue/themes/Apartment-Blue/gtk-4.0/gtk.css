@@ -1,0 +1,22 @@
+@import url("resource:///org/gtk/libgtk/theme/Default/Default-dark.css");
+@import url("../gtk-shared.css");
+@import url("../chrome.css");
+@import url("../window-controls.css");
+@import url("../gtk4-chrome.css");
+
+columnview row:selected, listview row:selected, gridview child:selected {
+  background-color: @apartment_selection;
+  color: @apartment_selected_text;
+}
+
+/* GtkEntry delegates focus and selection to its GtkText child. */
+entry:not(.flat):not(.error):not(.warning):focus-within {
+  border-color: @apartment_focus;
+  outline-color: @apartment_focus;
+  box-shadow: none;
+}
+
+entry > text > selection:focus-within {
+  color: @apartment_selected_text;
+  background-color: @apartment_selection;
+}

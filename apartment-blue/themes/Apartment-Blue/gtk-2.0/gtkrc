@@ -1,0 +1,24 @@
+style "apartment"
+{
+  xthickness = 2
+  ythickness = 2
+  bg[NORMAL] = "#202830"
+  bg[PRELIGHT] = "#354352"
+  bg[ACTIVE] = "#2b3641"
+  bg[SELECTED] = "#345471"
+  bg[INSENSITIVE] = "#28323b"
+  fg[NORMAL] = "#e0e6eb"
+  fg[PRELIGHT] = "#f4f7fa"
+  fg[ACTIVE] = "#e0e6eb"
+  fg[SELECTED] = "#f4f7fa"
+  fg[INSENSITIVE] = "#a6b4c2"
+  base[NORMAL] = "#171e25"
+  base[ACTIVE] = "#2b3641"
+  base[SELECTED] = "#345471"
+  base[INSENSITIVE] = "#202830"
+  text[NORMAL] = "#e0e6eb"
+  text[ACTIVE] = "#e0e6eb"
+  text[SELECTED] = "#f4f7fa"
+  text[INSENSITIVE] = "#a6b4c2"
+}
+class "*" style "apartment"
