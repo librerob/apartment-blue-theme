@@ -46,7 +46,7 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
 }
 
-.popup-menu-boxpointer {
+.popup-menu-boxpointer, .popup-menu {
   -arrow-background-color: #303337;
   -arrow-border-color: #50555b;
   -arrow-border-width: 1px;
