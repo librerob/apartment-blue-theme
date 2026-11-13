@@ -7,7 +7,7 @@
     <date>2026</date>
     <description>Charcoal title bars with recessed graphite buttons.</description>
   </info>
-  <frame_geometry name="normal" title_scale="medium" rounded_top_left="4" rounded_top_right="4">
+  <frame_geometry name="normal" title_scale="medium" rounded_top_left="10" rounded_top_right="10">
     <distance name="left_width" value="2" />
     <distance name="right_width" value="2" />
     <distance name="bottom_height" value="2" />
@@ -26,80 +26,76 @@
   </frame_geometry>
   <frame_geometry name="border" parent="normal" has_title="false" hide_buttons="true" rounded_top_left="0" rounded_top_right="0" />
   <draw_ops name="border">
-    <rectangle x="0" y="0" width="width" height="height" color="#111214" filled="true" />
+    <rectangle x="0" y="0" width="width" height="height" color="#242628" filled="true" />
   </draw_ops>
   <draw_ops name="bar_active">
     <gradient type="vertical" x="0" y="0" width="width" height="height">
-      <color value="#333436" />
-      <color value="#202123" />
+      <color value="#2e3134" />
+      <color value="#292c30" />
     </gradient>
-    <rectangle x="0" y="0" width="width" height="1" color="#555659" filled="true" />
-    <rectangle x="0" y="height - 1" width="width" height="1" color="#111214" filled="true" />
   </draw_ops>
   <draw_ops name="title_active">
-    <title x="(width - title_width) / 2" y="(height - title_height) / 2" color="#e0e6eb" />
+    <title x="(width - title_width) / 2" y="(height - title_height) / 2" color="#e3e6e9" />
   </draw_ops>
   <draw_ops name="bar_inactive">
     <gradient type="vertical" x="0" y="0" width="width" height="height">
-      <color value="#2b2c2e" />
-      <color value="#1c1d1f" />
+      <color value="#282a2d" />
+      <color value="#242628" />
     </gradient>
-    <rectangle x="0" y="0" width="width" height="1" color="#414245" filled="true" />
-    <rectangle x="0" y="height - 1" width="width" height="1" color="#111214" filled="true" />
   </draw_ops>
   <draw_ops name="title_inactive">
-    <title x="(width - title_width) / 2" y="(height - title_height) / 2" color="#a6b4c2" />
+    <title x="(width - title_width) / 2" y="(height - title_height) / 2" color="#adb4bd" />
   </draw_ops>
   <draw_ops name="rest">
-    <image filename="../titlebuttons/rest.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="../titlebuttons/rest.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="unfocused">
-    <image filename="../titlebuttons/unfocused.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="../titlebuttons/unfocused.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="menu">
-    <image filename="menu.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="menu.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="minimize">
-    <image filename="minimize.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="minimize.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="maximize">
-    <image filename="maximize.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="maximize.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="close">
-    <image filename="close.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="close.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="shade">
-    <image filename="shade.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="shade.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="unshade">
-    <image filename="unshade.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="unshade.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="above">
-    <image filename="above.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="above.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="unabove">
-    <image filename="unabove.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="unabove.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="stick">
-    <image filename="stick.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="stick.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="unstick">
-    <image filename="unstick.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="unstick.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="restore">
-    <image filename="restore.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="restore.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="close_pressed">
-    <image filename="../titlebuttons/close-pressed.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="../titlebuttons/close-pressed.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="minimize_pressed">
-    <image filename="../titlebuttons/minimize-pressed.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="../titlebuttons/minimize-pressed.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="maximize_pressed">
-    <image filename="../titlebuttons/maximize-pressed.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="../titlebuttons/maximize-pressed.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="restore_pressed">
-    <image filename="../titlebuttons/restore-pressed.svg" x="(width - 14) / 2" y="(height - 14) / 2" width="14" height="14" />
+    <image filename="../titlebuttons/restore-pressed.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <frame_style name="active" geometry="normal">
     <piece position="entire_background" draw_ops="border" />
