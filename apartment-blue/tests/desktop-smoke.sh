@@ -64,6 +64,50 @@ nemo --no-desktop "$preview_home" >evidence/nemo.log 2>&1 &
 timeout 25 xdotool search --sync --onlyvisible --class nemo windowmove 150 140 windowactivate --sync
 sleep 2
 import -window root evidence/nemo.png
+
+# Put a solid window behind Nemo to compare the frame on two backdrops.
+capture_frame_backdrop() {
+  local label=$1 color=$2 backdrop_pid
+  /usr/bin/python3 - "$color" <<'PYTHON' &
+import sys
+
+import gi
+
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk
+
+window = Gtk.Window(title="Apartment Blue backdrop", decorated=False)
+window.set_accept_focus(False)
+window.set_keep_below(True)
+window.set_skip_taskbar_hint(True)
+window.set_name("frame-backdrop")
+screen = window.get_screen()
+window.set_default_size(screen.get_width(), screen.get_height())
+window.move(0, 0)
+provider = Gtk.CssProvider()
+provider.load_from_data(f"#frame-backdrop {{ background: {sys.argv[1]}; }}".encode())
+window.get_style_context().add_provider(provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+window.show()
+Gtk.main()
+PYTHON
+  backdrop_pid=$!
+  timeout 15 xdotool search --sync --onlyvisible --name '^Apartment Blue backdrop$' >/dev/null
+  sleep .5
+  import -window root "evidence/frame-$label.png"
+  kill "$backdrop_pid"
+  wait "$backdrop_pid" 2>/dev/null || true
+}
+
+capture_frame_backdrop light '#dddfe2'
+capture_frame_backdrop dark '#171b21'
+for frame in light dark; do
+  color=$(convert "evidence/frame-$frame.png" -format '%[pixel:p{30,30}]' info:)
+  printf "%s %s\n" "$frame" "$color"
+done >evidence/frame-backdrops.txt
+if [ "$(cut -d' ' -f2 evidence/frame-backdrops.txt | sort -u | wc -l)" -ne 2 ]; then
+  echo "The frame backdrops rendered in the same color" >&2
+  exit 1
+fi
 xdotool mousemove 675 565 click 3
 sleep 1
 import -window root evidence/nemo-context.png
@@ -92,6 +136,17 @@ xdotool key Escape mousemove 1883 1060 click 1
 sleep 1
 import -window root evidence/calendar.png
 xdotool key Escape
+
+# Use Cinnamon's notification service and capture the banner while it is open.
+xdotool mousemove 900 650
+import -window root evidence/before-notification.png
+notify-send -a 'Apartment Blue' -i dialog-information 'Apartment Blue' 'Theme preview'
+sleep 1
+import -window root evidence/notification.png
+if compare -metric AE evidence/before-notification.png evidence/notification.png null: 2>evidence/notification-pixels.txt; then
+  echo 'Cinnamon did not show the notification' >&2
+  exit 1
+fi
 
 python3 libadwaita.py apply --legacy
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark

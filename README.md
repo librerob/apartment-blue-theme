@@ -4,7 +4,7 @@ A dark theme for Cinnamon, MATE and Xfce. It has charcoal title bars, recessed w
 
 ![Apartment Blue on Cinnamon](apartment-blue/screenshots/cinnamon.jpg)
 
-[Caja on MATE](apartment-blue/screenshots/mate.jpg) · [Thunar on Xfce](apartment-blue/screenshots/xfce.jpg)
+[Cinnamon menu, calendar and notifications](apartment-blue/screenshots/cinnamon-shell.jpg) · [Caja on MATE](apartment-blue/screenshots/mate.jpg) · [Thunar on Xfce](apartment-blue/screenshots/xfce.jpg)
 
 ## Install
 

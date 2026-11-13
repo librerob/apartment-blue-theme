@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Brighten the title button rims. Hover for a red close button, amber maximize and restore buttons, or a sage green minimize button.
+- Add small icons for Caja’s Places sidebar.
+
 ## 0.5.0
 
 - Add Marco and Xfwm window borders with the same graphite buttons as the GTK title bars.

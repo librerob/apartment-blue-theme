@@ -14,12 +14,13 @@
   <g transform="translate(5 10)">
     <defs>
       <linearGradient id="face" x2="0" y2="1">
-        <stop stop-color="#595b5c" />
-        <stop offset="1" stop-color="#242526" />
+        <stop stop-color="#6c6e71" />
+        <stop offset="1" stop-color="#2c2d2e" />
       </linearGradient>
       <linearGradient id="rim" x2="0" y2="1">
-        <stop offset=".45" stop-color="#616365" stop-opacity="0" />
-        <stop offset="1" stop-color="#616365" />
+        <stop stop-color="#77797c" stop-opacity=".55" />
+        <stop offset=".42" stop-color="#77797c" stop-opacity=".2" />
+        <stop offset="1" stop-color="#828589" />
       </linearGradient>
     </defs>
     <circle cx="6" cy="6.45" r="5.4" fill="url(#rim)" />

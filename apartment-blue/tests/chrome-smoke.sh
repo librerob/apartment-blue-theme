@@ -46,6 +46,19 @@ expect_glyph() {
   fi
 }
 
+expect_hover_color() {
+  local image=$1 color=$2
+  local crop="$((12 * SCALE))x$((12 * SCALE))+$((button_x - 6 * SCALE))+$((button_y - 6 * SCALE))"
+  local pixels
+  pixels=$(convert "$image" -crop "$crop" +repage -fuzz 3% \
+    -fill black +opaque "$color" -fill white -opaque "$color" \
+    -colorspace gray -format '%[fx:round(mean*w*h)]' info:)
+  if [ "$pixels" -lt "$((SCALE * SCALE))" ]; then
+    echo "Missing $color hover fill in $image at $crop" >&2
+    return 1
+  fi
+}
+
 wait_for_state() {
   local atom=$1 present=$2
   for _ in {1..40}; do
@@ -85,12 +98,14 @@ for kind in muffin gtk3 gtk4 adw; do
   xprop -id "$window" _NET_FRAME_EXTENTS _GTK_FRAME_EXTENTS >>"evidence/chrome-$kind-frame.log"
   frame
   capture ""
-  for item in 0:close 1:maximize 2:minimize; do
-    aim "${item%:*}"
+  for item in '0 close #a04449' '1 maximize #905b2e' '2 minimize #4b7155'; do
+    read -r index control color <<< "$item"
+    aim "$index"
     expect_glyph "evidence/chrome-$kind.png" hidden
     sleep 0.35
-    capture "-${item#*:}-hover"
-    expect_glyph "evidence/chrome-$kind-${item#*:}-hover.png" visible
+    capture "-$control-hover"
+    expect_glyph "evidence/chrome-$kind-$control-hover.png" visible
+    expect_hover_color "evidence/chrome-$kind-$control-hover.png" "$color"
   done
   xdotool click 1
   wait_for_state _NET_WM_STATE_HIDDEN yes
@@ -107,6 +122,7 @@ for kind in muffin gtk3 gtk4 adw; do
   sleep 0.35
   capture "-restore-hover"
   expect_glyph "evidence/chrome-$kind-restore-hover.png" visible
+  expect_hover_color "evidence/chrome-$kind-restore-hover.png" "#905b2e"
   xdotool click 1
   wait_for_state _NET_WM_STATE_MAXIMIZED_VERT no
   sleep 0.6
@@ -124,6 +140,9 @@ for kind in muffin gtk3 gtk4 adw; do
     exit 1
   fi
   cat "evidence/chrome-$kind.log"
+  if [ "$kind" != muffin ]; then
+    grep -Fx "$kind title bar: 32 logical px" "evidence/chrome-$kind.log"
+  fi
   if grep -Ei 'theme parser error|failed to import|error loading image' "evidence/chrome-$kind.log"; then
     exit 1
   fi
