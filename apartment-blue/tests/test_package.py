@@ -15,6 +15,20 @@ ICONS = ROOT / "icons/Apartment-Blue"
 
 
 class PackageTest(unittest.TestCase):
+    def test_title_button_geometry(self):
+        names = ("rest", "unfocused", "close", "minimize", "maximize", "restore",
+                 "close-pressed", "minimize-pressed", "maximize-pressed", "restore-pressed")
+        ns = {"svg": "http://www.w3.org/2000/svg"}
+        circles = []
+        for name in names:
+            with self.subTest(state=name):
+                root = ET.parse(THEME / f"titlebuttons/{name}.svg").getroot()
+                self.assertEqual((root.get("width"), root.get("height")), ("48", "48"))
+                self.assertEqual(root.get("viewBox"), "0 0 12 12")
+                circle, = root.findall(".//svg:circle", ns)
+                circles.append(tuple(circle.get(key) for key in ("cx", "cy", "r", "stroke-width")))
+        self.assertEqual(len(set(circles)), 1)
+
     def test_css_imports(self):
         for path in THEME.rglob("*.css"):
             with self.subTest(path=path.relative_to(THEME)):
