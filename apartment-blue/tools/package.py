@@ -8,7 +8,7 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 ROOT = Path(__file__).resolve().parents[1]
 INCLUDE = (
     "themes", "icons", "wallpapers", "extras", "palette", "tests", "tools",
-    "VERSION", "LICENSE", "NOTICE.md", "README.md", "CHANGELOG.md",
+    "VERSION", "LICENSE", "NOTICE.md", "README.md", "CHANGELOG.md", "DESIGN.md",
     "install.py", "legacy-installs.json", "libadwaita.py",
 )
 
