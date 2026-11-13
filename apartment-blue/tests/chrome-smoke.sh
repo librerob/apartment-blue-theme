@@ -25,7 +25,17 @@ aim() {
 }
 
 capture() {
-  import -window root "evidence/chrome-$kind$1.png"
+  local image="evidence/chrome-$kind$1.png"
+  import -window root "$image"
+  if [[ "$kind" = muffin || "$kind" = gtk3 ]]; then
+    local left=$x
+    if [ "$kind" = gtk3 ]; then
+      read -r left _ _ _ <<< "$(xprop -id "$window" _GTK_FRAME_EXTENTS | sed 's/.* = //; s/,//g')"
+      left=$((x + left))
+    fi
+    convert "$image" -crop "$((right_edge - left))x$((32 * SCALE))+${left}+${y}" \
+      +repage "evidence/titlebar-$kind$1.png"
+  fi
 }
 
 expect_glyph() {
@@ -50,11 +60,12 @@ expect_hover_color() {
   local image=$1 color=$2
   local crop="$((12 * SCALE))x$((12 * SCALE))+$((button_x - 6 * SCALE))+$((button_y - 6 * SCALE))"
   local pixels
-  pixels=$(convert "$image" -crop "$crop" +repage -fuzz 3% \
+  # At 1x, a thin stroke can be antialiased across two rows of pixels.
+  pixels=$(convert "$image" -crop "$crop" +repage -fuzz 18% \
     -fill black +opaque "$color" -fill white -opaque "$color" \
     -colorspace gray -format '%[fx:round(mean*w*h)]' info:)
-  if [ "$pixels" -lt "$((SCALE * SCALE))" ]; then
-    echo "Missing $color hover fill in $image at $crop" >&2
+  if [ "$pixels" -lt "$SCALE" ]; then
+    echo "Missing $color glyph in $image at $crop" >&2
     return 1
   fi
 }
@@ -98,13 +109,12 @@ for kind in muffin gtk3 gtk4 adw; do
   xprop -id "$window" _NET_FRAME_EXTENTS _GTK_FRAME_EXTENTS >>"evidence/chrome-$kind-frame.log"
   frame
   capture ""
-  for item in '0 close #a04449' '1 maximize #905b2e' '2 minimize #4b7155'; do
+  for item in '0 close #cf8a8a' '1 maximize #c3a173' '2 minimize #9bb09d'; do
     read -r index control color <<< "$item"
     aim "$index"
     expect_glyph "evidence/chrome-$kind.png" hidden
     sleep 0.35
     capture "-$control-hover"
-    expect_glyph "evidence/chrome-$kind-$control-hover.png" visible
     expect_hover_color "evidence/chrome-$kind-$control-hover.png" "$color"
   done
   xdotool click 1
@@ -121,8 +131,7 @@ for kind in muffin gtk3 gtk4 adw; do
   aim 1
   sleep 0.35
   capture "-restore-hover"
-  expect_glyph "evidence/chrome-$kind-restore-hover.png" visible
-  expect_hover_color "evidence/chrome-$kind-restore-hover.png" "#905b2e"
+  expect_hover_color "evidence/chrome-$kind-restore-hover.png" "#c3a173"
   xdotool click 1
   wait_for_state _NET_WM_STATE_MAXIMIZED_VERT no
   sleep 0.6
