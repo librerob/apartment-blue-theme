@@ -14,6 +14,7 @@ cat > "$HOME/.config/gtk-3.0/settings.ini" <<'GTK'
 [Settings]
 gtk-theme-name=Apartment-Blue
 gtk-icon-theme-name=Apartment-Blue
+gtk-font-name=Noto Sans 10
 GTK
 xdg-user-dirs-update
 for folder in Desktop Documents Downloads Music Pictures Public Templates Videos; do
@@ -27,6 +28,8 @@ done
 gsettings set org.cinnamon.desktop.interface scaling-factor "$SCALE"
 gsettings set org.cinnamon.theme name Apartment-Blue
 gsettings set org.cinnamon.desktop.interface gtk-theme Apartment-Blue
+gsettings set org.cinnamon.desktop.interface font-name 'Noto Sans 10'
+gsettings set org.cinnamon.desktop.wm.preferences titlebar-font 'Noto Sans Bold 10'
 gsettings set org.cinnamon.desktop.interface icon-theme Apartment-Blue
 gsettings set org.gnome.desktop.interface gtk-theme Apartment-Blue
 csd-xsettings >evidence/xsettings.log 2>&1 &
@@ -64,6 +67,7 @@ nemo --no-desktop "$preview_home" >evidence/nemo.log 2>&1 &
 timeout 25 xdotool search --sync --onlyvisible --class nemo windowmove 150 140 windowactivate --sync
 sleep 2
 import -window root evidence/nemo.png
+cp evidence/nemo.png evidence/panel.png
 nemo_window=$(xdotool getactivewindow)
 /usr/bin/python3 tests/chrome-probe.py muffin 'Backdrop focus target' >evidence/backdrop-focus.log 2>&1 &
 focus_pid=$!
