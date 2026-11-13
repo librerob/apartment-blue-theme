@@ -64,6 +64,14 @@ nemo --no-desktop "$preview_home" >evidence/nemo.log 2>&1 &
 timeout 25 xdotool search --sync --onlyvisible --class nemo windowmove 150 140 windowactivate --sync
 sleep 2
 import -window root evidence/nemo.png
+
+# Use solid backdrops so the frame is easy to judge at both extremes.
+xsetroot -solid '#dddfe2'
+sleep .3
+import -window root evidence/frame-light.png
+xsetroot -solid '#171b21'
+sleep .3
+import -window root evidence/frame-dark.png
 xdotool mousemove 675 565 click 3
 sleep 1
 import -window root evidence/nemo-context.png
@@ -92,6 +100,17 @@ xdotool key Escape mousemove 1883 1060 click 1
 sleep 1
 import -window root evidence/calendar.png
 xdotool key Escape
+
+# Use Cinnamon's notification service and capture the banner while it is open.
+xdotool mousemove 900 650
+import -window root evidence/before-notification.png
+notify-send -a 'Apartment Blue' -i dialog-information 'Apartment Blue' 'Theme preview'
+sleep 1
+import -window root evidence/notification.png
+if compare -metric AE evidence/before-notification.png evidence/notification.png null: 2>evidence/notification-pixels.txt; then
+  echo 'Cinnamon did not show the notification' >&2
+  exit 1
+fi
 
 python3 libadwaita.py apply --legacy
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark

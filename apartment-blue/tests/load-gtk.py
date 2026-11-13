@@ -21,4 +21,9 @@ if errors:
 if major == "3":
     icon = Gtk.IconTheme.get_default().lookup_icon("folder", 48, 0)
     assert icon and "/.icons/Apartment-Blue/" in icon.get_filename()
+    for name in ("folder-documents", "folder-download", "folder-music", "folder-pictures", "folder-videos"):
+        small = Gtk.IconTheme.get_default().lookup_icon(name, 16, 0)
+        large = Gtk.IconTheme.get_default().lookup_icon(name, 48, 0)
+        assert small and "/Apartment-Blue/16x16/places/" in small.get_filename(), name
+        assert large and "/Apartment-Blue/scalable/places/" in large.get_filename(), name
 print(f"GTK {major} stylesheet loaded")
