@@ -66,12 +66,21 @@ sleep 2
 import -window root evidence/nemo.png
 
 # Use solid backdrops so the frame is easy to judge at both extremes.
-xsetroot -solid '#dddfe2'
-sleep .3
+gsettings set org.cinnamon.desktop.background picture-options none
+gsettings set org.cinnamon.desktop.background primary-color '#dddfe2'
+sleep 1
 import -window root evidence/frame-light.png
-xsetroot -solid '#171b21'
-sleep .3
+gsettings set org.cinnamon.desktop.background primary-color '#171b21'
+sleep 1
 import -window root evidence/frame-dark.png
+for frame in light dark; do
+  color=$(convert "evidence/frame-$frame.png" -format '%[pixel:p{10,10}]' info:)
+  printf "%s %s\n" "$frame" "$color"
+done >evidence/frame-backdrops.txt
+if [ "$(cut -d" " -f2 evidence/frame-backdrops.txt | sort -u | wc -l)" -ne 2 ]; then
+  echo "Cinnamon did not change the desktop background" >&2
+  exit 1
+fi
 xdotool mousemove 675 565 click 3
 sleep 1
 import -window root evidence/nemo-context.png
