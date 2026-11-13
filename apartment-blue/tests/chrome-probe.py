@@ -15,7 +15,7 @@ if mode == "adw":
     from gi.repository import Adw
     Adw.init()
 
-title = f"Apartment Blue {mode}"
+title = sys.argv[2] if len(sys.argv) > 2 else f"Apartment Blue {mode}"
 window = Gtk.Window(title=title, default_width=430, default_height=115)
 Gtk.Settings.get_default().set_property("gtk-decoration-layout", ":minimize,maximize,close")
 body = Gtk.Box()
@@ -43,12 +43,40 @@ if mode != "muffin":
         bar = Adw.HeaderBar()
     window.set_titlebar(bar)
 
+
+def children(widget):
+    if major == 3:
+        items = []
+        if isinstance(widget, Gtk.Container):
+            widget.forall(items.append)
+        return items
+    items = []
+    child = widget.get_first_child()
+    while child is not None:
+        items.append(child)
+        child = child.get_next_sibling()
+    return items
+
+
+def title_buttons(widget):
+    if isinstance(widget, Gtk.Button):
+        classes = widget.get_style_context().list_classes() if major == 3 else widget.get_css_classes()
+        for name in ("close", "minimize", "maximize"):
+            if name in classes:
+                yield name, widget
+    for child in children(widget):
+        yield from title_buttons(child)
+
+
 def measure():
     if bar is not None:
         height = bar.get_allocated_height() if major == 3 else bar.get_height()
         if height == 0:
             return True
         print(f"{mode} title bar: {height} logical px", flush=True)
+        for name, button in title_buttons(bar):
+            width, height = button.get_allocated_width(), button.get_allocated_height()
+            print(f"hit area {name} {width} {height}", flush=True)
     print(f"{mode} GTK window scale: {window.get_scale_factor()}", flush=True)
     return False
 

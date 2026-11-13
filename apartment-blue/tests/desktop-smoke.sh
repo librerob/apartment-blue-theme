@@ -64,6 +64,11 @@ nemo --no-desktop "$preview_home" >evidence/nemo.log 2>&1 &
 timeout 25 xdotool search --sync --onlyvisible --class nemo windowmove 150 140 windowactivate --sync
 sleep 2
 import -window root evidence/nemo.png
+nemo_window=$(xdotool getactivewindow)
+/usr/bin/python3 tests/chrome-probe.py muffin 'Backdrop focus target' >evidence/backdrop-focus.log 2>&1 &
+focus_pid=$!
+focus_window=$(timeout 15 xdotool search --sync --onlyvisible --name '^Backdrop focus target$')
+xdotool windowmove "$focus_window" 1100 150
 
 # Put a solid window behind Nemo to compare the frame on two backdrops.
 capture_frame_backdrop() {
@@ -92,14 +97,20 @@ Gtk.main()
 PYTHON
   backdrop_pid=$!
   timeout 15 xdotool search --sync --onlyvisible --name '^Apartment Blue backdrop$' >/dev/null
+  xdotool windowactivate --sync "$nemo_window"
   sleep .5
   import -window root "evidence/frame-$label.png"
+  xdotool windowactivate --sync "$focus_window"
+  sleep .5
+  import -window root "evidence/frame-$label-unfocused.png"
   kill "$backdrop_pid"
   wait "$backdrop_pid" 2>/dev/null || true
 }
 
 capture_frame_backdrop light '#dddfe2'
 capture_frame_backdrop dark '#171b21'
+kill "$focus_pid"
+xdotool windowactivate --sync "$nemo_window"
 for frame in light dark; do
   color=$(convert "evidence/frame-$frame.png" -format '%[pixel:p{30,30}]' info:)
   printf "%s %s\n" "$frame" "$color"

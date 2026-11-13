@@ -23,11 +23,11 @@ class PackageTest(unittest.TestCase):
         for name in names:
             with self.subTest(state=name):
                 root = ET.parse(THEME / f"titlebuttons/{name}.svg").getroot()
-                self.assertEqual((root.get("width"), root.get("height")), ("48", "48"))
-                self.assertEqual(root.get("viewBox"), "0 0 12 12")
+                self.assertEqual((root.get("width"), root.get("height")), ("56", "56"))
+                self.assertEqual(root.get("viewBox"), "0 0 14 14")
                 circle, = root.findall(".//svg:circle", ns)
                 circles.append(tuple(circle.get(key) for key in ("cx", "cy", "r", "stroke-width")))
-        self.assertEqual(len(set(circles)), 1)
+        self.assertEqual(set(circles), {("7", "7", "5.75", "1")})
 
     def test_css_imports(self):
         for path in THEME.rglob("*.css"):
