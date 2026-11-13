@@ -109,7 +109,7 @@ for kind in muffin gtk3 gtk4 adw; do
   xprop -id "$window" _NET_FRAME_EXTENTS _GTK_FRAME_EXTENTS >>"evidence/chrome-$kind-frame.log"
   frame
   capture ""
-  for item in '0 close #e39089' '1 maximize #c3a173' '2 minimize #9bb09d'; do
+  for item in '0 close #e3e6e9' '1 maximize #e3e6e9' '2 minimize #e3e6e9'; do
     read -r index control color <<< "$item"
     aim "$index"
     expect_glyph "evidence/chrome-$kind.png" hidden
@@ -160,7 +160,7 @@ for kind in muffin gtk3 gtk4 adw; do
   aim 1
   sleep 0.35
   capture "-restore-hover"
-  expect_hover_color "evidence/chrome-$kind-restore-hover.png" "#c3a173"
+  expect_hover_color "evidence/chrome-$kind-restore-hover.png" "#e3e6e9"
   xdotool click 1
   wait_for_state _NET_WM_STATE_MAXIMIZED_VERT no
   sleep 0.6

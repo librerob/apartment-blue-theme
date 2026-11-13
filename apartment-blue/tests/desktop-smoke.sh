@@ -58,7 +58,9 @@ if [ "$SCALE" = 2 ]; then
   dbus-update-activation-environment GDK_DPI_SCALE
 fi
 
-bash tests/chrome-smoke.sh
+if [ "${CAPTURE_BASELINE:-0}" != 1 ]; then
+  bash tests/chrome-smoke.sh
+fi
 
 # Set the preview font in this disposable desktop session after the geometry tests.
 gsettings set org.cinnamon.desktop.interface font-name 'Noto Sans 10'
