@@ -1,12 +1,12 @@
-/* The 12px artwork sits inside a 22px title button. */
+/* The 14px artwork sits inside a 24px title button. */
 button.titlebutton.minimize,
 button.titlebutton.maximize,
 button.titlebutton.close,
 windowcontrols button.minimize,
 windowcontrols button.maximize,
 windowcontrols button.close {
-  min-width: 22px;
-  min-height: 22px;
+  min-width: 24px;
+  min-height: 24px;
   margin: 0;
   padding: 0;
   border: 0;
@@ -17,9 +17,15 @@ windowcontrols button.close {
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("titlebuttons/rest.svg");
-  background-size: 12px 12px;
+  background-size: 14px 14px;
   color: transparent;
   -gtk-icon-shadow: none;
+}
+
+headerbar:not(.flat) windowcontrols button.minimize,
+headerbar:not(.flat) windowcontrols button.maximize,
+headerbar:not(.flat) windowcontrols button.close {
+  min-height: 24px;
 }
 
 button.titlebutton.minimize:backdrop,
