@@ -22,6 +22,15 @@ windowcontrols button.close {
   -gtk-icon-shadow: none;
 }
 
+button.titlebutton.minimize:backdrop,
+button.titlebutton.maximize:backdrop,
+button.titlebutton.close:backdrop,
+windowcontrols button.minimize:backdrop,
+windowcontrols button.maximize:backdrop,
+windowcontrols button.close:backdrop {
+  background-image: url("titlebuttons/unfocused.svg");
+}
+
 windowcontrols button.minimize > image,
 windowcontrols button.maximize > image,
 windowcontrols button.close > image {
@@ -35,39 +44,47 @@ windowcontrols button.close > image {
 button.titlebutton.minimize:hover,
 headerbar windowcontrols button.minimize:hover,
 button.titlebutton.minimize:focus,
-headerbar windowcontrols button.minimize:focus,
+headerbar windowcontrols button.minimize:focus {
+  background-image: url("titlebuttons/minimize.svg");
+}
+
 button.titlebutton.minimize:active,
 headerbar windowcontrols button.minimize:active {
-  background-color: transparent;
-  background-image: url("titlebuttons/minimize.svg"), url("titlebuttons/highlight.svg");
+  background-image: url("titlebuttons/minimize-pressed.svg");
 }
 
 button.titlebutton.maximize:hover,
 headerbar windowcontrols button.maximize:hover,
 button.titlebutton.maximize:focus,
-headerbar windowcontrols button.maximize:focus,
+headerbar windowcontrols button.maximize:focus {
+  background-image: url("titlebuttons/maximize.svg");
+}
+
 button.titlebutton.maximize:active,
 headerbar windowcontrols button.maximize:active {
-  background-color: transparent;
-  background-image: url("titlebuttons/maximize.svg"), url("titlebuttons/highlight.svg");
+  background-image: url("titlebuttons/maximize-pressed.svg");
 }
 
 .maximized button.titlebutton.maximize:hover,
 .maximized headerbar windowcontrols button.maximize:hover,
 .maximized button.titlebutton.maximize:focus,
-.maximized headerbar windowcontrols button.maximize:focus,
+.maximized headerbar windowcontrols button.maximize:focus {
+  background-image: url("titlebuttons/restore.svg");
+}
+
 .maximized button.titlebutton.maximize:active,
 .maximized headerbar windowcontrols button.maximize:active {
-  background-color: transparent;
-  background-image: url("titlebuttons/restore.svg"), url("titlebuttons/highlight.svg");
+  background-image: url("titlebuttons/restore-pressed.svg");
 }
 
 button.titlebutton.close:hover,
 headerbar windowcontrols button.close:hover,
 button.titlebutton.close:focus,
-headerbar windowcontrols button.close:focus,
+headerbar windowcontrols button.close:focus {
+  background-image: url("titlebuttons/close.svg");
+}
+
 button.titlebutton.close:active,
 headerbar windowcontrols button.close:active {
-  background-color: transparent;
-  background-image: url("titlebuttons/close.svg"), url("titlebuttons/highlight.svg");
+  background-image: url("titlebuttons/close-pressed.svg");
 }
