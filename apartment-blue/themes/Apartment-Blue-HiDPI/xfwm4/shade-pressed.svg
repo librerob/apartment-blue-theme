@@ -2,17 +2,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="64" viewBox="0 0 24 32">
   <defs>
     <linearGradient id="bar" x2="0" y2="1">
-      <stop offset="0" stop-color="#555659" />
-      <stop offset=".03125" stop-color="#555659" />
-      <stop offset=".03125" stop-color="#333436" />
-      <stop offset=".96875" stop-color="#202123" />
-      <stop offset=".96875" stop-color="#111214" />
-      <stop offset="1" stop-color="#111214" />
+      <stop offset="0" stop-color="#2e3134" />
+      <stop offset="1" stop-color="#292c30" />
     </linearGradient>
   </defs>
   <rect width="24" height="32" fill="url(#bar)" />
-  <g transform="translate(5 9)">
-    <circle cx="7" cy="7" r="5.75" fill="#242527" stroke="#171819" stroke-width="1" />
-    <path d="m3.5 7 2.5-2.5L8.5 7" fill="none" stroke="#c5c6c7" transform="translate(1 1)" stroke-width="1.65" stroke-linecap="butt" stroke-linejoin="miter" />
+  <g transform="translate(4 8)">
+    <circle cx="8" cy="8" r="7" fill="#35383c" />
+    <path d="m3.5 7 2.5-2.5L8.5 7" fill="none" stroke="#e3e6e9" transform="translate(2 2)" stroke-width="1.4" stroke-linecap="butt" stroke-linejoin="miter" />
   </g>
 </svg>
