@@ -25,6 +25,7 @@
     <circle cx="6" cy="6.45" r="5.4" fill="url(#rim)" />
     <circle cx="6" cy="5.8" r="5.25" fill="#141516" />
     <circle cx="6" cy="5.8" r="4.02" fill="url(#face)" />
+    <circle cx="6" cy="5.8" r="4.6" fill="#905b2e" />
     <g fill="none" stroke="#e1e2e3" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round">
       <rect x="3.9" y="3.7" width="4.2" height="4.2" rx=".3" />
     </g>
