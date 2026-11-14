@@ -48,13 +48,34 @@ jobs:
       - name: Install Cinnamon and test apps
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends cinnamon nemo gnome-terminal celluloid dconf-cli dbus-x11 xvfb xauth xdotool x11-utils x11-xserver-utils imagemagick libnotify-bin gir1.2-gtk-3.0 gir1.2-gtk-4.0 gir1.2-adw-1 adwaita-icon-theme librsvg2-common cinnamon-settings-daemon xdg-user-dirs
+          sudo apt-get install -y --no-install-recommends cinnamon nemo gnome-terminal celluloid dconf-cli dbus-x11 xvfb xauth xdotool x11-utils x11-xserver-utils imagemagick libnotify-bin gir1.2-gtk-3.0 gir1.2-gtk-4.0 gir1.2-adw-1 adwaita-icon-theme librsvg2-common cinnamon-settings-daemon xdg-user-dirs fonts-noto-core
       - run: python3 install.py
       - name: Open the desktop and capture screenshots
         run: |
           sudo hostname Robin
           mkdir -p evidence
           xvfb-run -a -s '-screen 0 1920x1080x24' dbus-run-session -- bash tests/desktop-smoke.sh
+      - name: Check out the 0.5.2 baseline
+        uses: actions/checkout@v4
+        with:
+          ref: a20b6cc1141c492d81c953a9fd7c45f3317f0b5b
+          path: baseline
+      - name: Capture the 0.5.2 desktop with the same font
+        run: |
+          preview_script="$PWD/tests/desktop-smoke.sh"
+          cd ../baseline/apartment-blue
+          preview_home=$(mktemp -d)
+          mkdir "$preview_home/$(basename "$HOME")"
+          export HOME="$preview_home/$(basename "$HOME")" CAPTURE_BASELINE=1
+          export XDG_CONFIG_HOME="$HOME/.config" XDG_DATA_HOME="$HOME/.local/share"
+          mkdir -p evidence
+          python3 install.py
+          xvfb-run -a -s '-screen 0 1920x1080x24' dbus-run-session -- bash "$preview_script"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cinnamon-baseline-${{ matrix.scale }}
+          path: baseline/apartment-blue/evidence/
       - uses: actions/upload-artifact@v4
         if: always()
         with:

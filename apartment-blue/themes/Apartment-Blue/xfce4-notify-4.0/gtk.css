@@ -1,17 +1,21 @@
 #XfceNotifyWindow {
-  background-color: #27292c;
-  color: #e0e6eb;
-  border: 1px solid #111214;
-  border-radius: 4px;
+  background-color: #303337;
+  color: #e3e6e9;
+  border: 0;
+  border-radius: 10px;
 }
 
 #XfceNotifyWindow button {
   background: transparent;
-  color: #e0e6eb;
+  color: #e3e6e9;
 }
 
-#XfceNotifyWindow button:hover,
+#XfceNotifyWindow button:hover {
+  background: #3a3e43;
+  border-radius: 6px;
+}
+
 #XfceNotifyWindow button:focus {
-  background: #345471;
+  background: #3d5770;
   color: #f4f7fa;
 }

@@ -58,12 +58,21 @@ if [ "$SCALE" = 2 ]; then
   dbus-update-activation-environment GDK_DPI_SCALE
 fi
 
-bash tests/chrome-smoke.sh
+if [ "${CAPTURE_BASELINE:-0}" != 1 ]; then
+  bash tests/chrome-smoke.sh
+fi
+
+# Set the preview font in this disposable desktop session after the geometry tests.
+gsettings set org.cinnamon.desktop.interface font-name 'Noto Sans 10'
+gsettings set org.cinnamon.desktop.wm.preferences titlebar-font 'Noto Sans Bold 10'
+printf 'gtk-font-name=Noto Sans 10\n' >>"$HOME/.config/gtk-3.0/settings.ini"
+sleep 1
 
 nemo --no-desktop "$preview_home" >evidence/nemo.log 2>&1 &
 timeout 25 xdotool search --sync --onlyvisible --class nemo windowmove 150 140 windowactivate --sync
 sleep 2
 import -window root evidence/nemo.png
+cp evidence/nemo.png evidence/panel.png
 nemo_window=$(xdotool getactivewindow)
 /usr/bin/python3 tests/chrome-probe.py muffin 'Backdrop focus target' >evidence/backdrop-focus.log 2>&1 &
 focus_pid=$!
@@ -140,9 +149,16 @@ gnome-terminal --profile='Apartment Blue' --geometry=52x16+180+145 --title='Apar
 timeout 25 xdotool search --sync --onlyvisible --name 'Apartment Blue terminal' windowactivate --sync
 sleep 2
 import -window root evidence/terminal.png
-xdotool key Super_L
-sleep 1
+xdotool mousemove "$((14 * SCALE))" "$((1080 - 12 * SCALE))" click 1
+sleep 3
 import -window root evidence/menu.png
+menu_region="150x200+0+$((1080 - 250 * SCALE))"
+convert evidence/terminal.png -crop "$menu_region" +repage evidence/menu-closed.png
+convert evidence/menu.png -crop "$menu_region" +repage evidence/menu-open.png
+if compare -metric AE evidence/menu-closed.png evidence/menu-open.png null: 2>evidence/menu-pixels.txt; then
+  echo 'Cinnamon did not open the applications menu' >&2
+  exit 1
+fi
 xdotool key Escape mousemove 1883 1060 click 1
 sleep 1
 import -window root evidence/calendar.png

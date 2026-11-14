@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0
+
+- Use a shared graphite palette for windows, panels, and menus.
+- Give Cinnamon menu rows, calendar headings, and notifications more room.
+- Round windows and menus, soften their shadows, and flatten the title buttons.
+
 ## 0.5.2
 
 - Enlarge the graphite window buttons and sharpen their symbols.

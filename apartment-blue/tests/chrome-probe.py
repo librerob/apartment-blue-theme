@@ -36,7 +36,7 @@ else:
 bar = None
 if mode != "muffin":
     if mode == "gtk3":
-        bar = Gtk.HeaderBar(title=title, show_close_button=True)
+        bar = Gtk.HeaderBar(title=title, show_close_button=True, has_subtitle=False)
     elif mode == "gtk4":
         bar = Gtk.HeaderBar()
     else:

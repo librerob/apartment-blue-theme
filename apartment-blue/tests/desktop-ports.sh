@@ -123,7 +123,7 @@ else
   stride=24
 fi
 center_y=$((y - expected / 2))
-for item in '0 close #e39089' '1 maximize #c3a173' '2 minimize #9bb09d'; do
+for item in '0 close #e3e6e9' '1 maximize #e3e6e9' '2 minimize #e3e6e9'; do
   read -r index control color <<< "$item"
   center_x=$((x + width - (offset + stride * index) * GDK_SCALE))
   crop="$((14 * GDK_SCALE))x$((14 * GDK_SCALE))+$((center_x - 7 * GDK_SCALE))+$((center_y - 7 * GDK_SCALE))"

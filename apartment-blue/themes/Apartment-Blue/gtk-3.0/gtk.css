@@ -4,11 +4,11 @@
 @import url("../window-controls.css");
 @import url("desktop.css");
 
-@define-color theme_bg_color #202830;
-@define-color theme_fg_color #e0e6eb;
-@define-color theme_base_color #171e25;
-@define-color theme_text_color #e0e6eb;
-@define-color theme_selected_bg_color #345471;
+@define-color theme_bg_color #242628;
+@define-color theme_fg_color #e3e6e9;
+@define-color theme_base_color #1c1e21;
+@define-color theme_text_color #e3e6e9;
+@define-color theme_selected_bg_color #3d5770;
 @define-color theme_selected_fg_color #f4f7fa;
 
 /* Keep the bars on one surface and the two browsing panes on another. */
@@ -28,7 +28,7 @@
 
 .nemo-window toolbar.primary-toolbar button.flat:checked,
 .nemo-window toolbar.primary-toolbar button.flat:active {
-  background-color: @apartment_selection;
+  background-color: @apartment_raised;
   background-image: none;
   color: @apartment_selected_text;
 }
@@ -48,7 +48,13 @@
 }
 
 window.csd decoration {
-  border-radius: 4px 4px 0 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
+}
+
+window.csd.maximized decoration, window.csd.fullscreen decoration {
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Muffin uses the GTK default-decoration node for server-side title bars. */
@@ -67,18 +73,26 @@ window.ssd headerbar.default-decoration button.titlebutton image {
 }
 
 menu {
-  background-color: #27292c;
+  background-color: #303337;
   color: @apartment_text;
-  border: 1px solid #111214;
+  border: 1px solid #50555b;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
 }
 
-menuitem:hover, menuitem:focus, modelbutton:hover, modelbutton:focus {
+menuitem:hover, modelbutton:hover {
+  background-color: #3a3e43;
+  border-radius: 6px;
+}
+
+menuitem:focus, modelbutton:focus {
   background-color: @apartment_selection;
   color: @apartment_selected_text;
+  border-radius: 6px;
 }
 
 menuitem:disabled {
-  color: #939aa2;
+  color: #adb4bd;
 }
 
 menu separator {

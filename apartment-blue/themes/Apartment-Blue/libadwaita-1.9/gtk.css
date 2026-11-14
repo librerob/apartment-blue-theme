@@ -3,25 +3,25 @@
 
 @media (prefers-color-scheme: dark) and (prefers-contrast: no-preference) {
   window, popover {
-    --accent-bg-color: #345471;
+    --accent-bg-color: #3d5770;
     --accent-fg-color: #f4f7fa;
-    --accent-color: #8bb6dc;
-    --window-bg-color: #202830;
-    --window-fg-color: #e0e6eb;
-    --view-bg-color: #171e25;
-    --view-fg-color: #e0e6eb;
-    --headerbar-bg-color: #202123;
-    --headerbar-fg-color: #e0e6eb;
-    --headerbar-backdrop-color: #1c1d1f;
-    --sidebar-bg-color: #1c252e;
-    --sidebar-fg-color: #e0e6eb;
-    --sidebar-backdrop-color: #202830;
-    --secondary-sidebar-bg-color: #202830;
-    --secondary-sidebar-fg-color: #e0e6eb;
-    --popover-bg-color: #27292c;
-    --popover-fg-color: #e0e6eb;
-    --dialog-bg-color: #27292c;
-    --dialog-fg-color: #e0e6eb;
+    --accent-color: #9bbfe0;
+    --window-bg-color: #242628;
+    --window-fg-color: #e3e6e9;
+    --view-bg-color: #1c1e21;
+    --view-fg-color: #e3e6e9;
+    --headerbar-bg-color: #292c30;
+    --headerbar-fg-color: #e3e6e9;
+    --headerbar-backdrop-color: #242628;
+    --sidebar-bg-color: #292c30;
+    --sidebar-fg-color: #e3e6e9;
+    --sidebar-backdrop-color: #242628;
+    --secondary-sidebar-bg-color: #242628;
+    --secondary-sidebar-fg-color: #e3e6e9;
+    --popover-bg-color: #303337;
+    --popover-fg-color: #e3e6e9;
+    --dialog-bg-color: #303337;
+    --dialog-fg-color: #e3e6e9;
   }
 
   /* The bars and menus shared by GTK and the libadwaita override. */
@@ -29,18 +29,18 @@
     min-height: 32px;
     padding: 0 5px;
     border: 0;
-    border-radius: 4px 4px 0 0;
-    color: #e0e6eb;
-    background-color: #202123;
-    background-image: linear-gradient(to bottom, #333436, #202123);
-    box-shadow: inset 0 1px #555659, inset 0 -1px #111214;
+    border-radius: 10px 10px 0 0;
+    color: #e3e6e9;
+    background-color: #292c30;
+    background-image: linear-gradient(to bottom, #2e3134, #292c30);
+    box-shadow: none;
   }
 
   headerbar:not(.flat):backdrop, .titlebar:not(.flat):backdrop {
-    color: #a6b4c2;
-    background-color: #1c1d1f;
-    background-image: linear-gradient(to bottom, #2b2c2e, #1c1d1f);
-    box-shadow: inset 0 1px #414245, inset 0 -1px #111214;
+    color: #adb4bd;
+    background-color: #242628;
+    background-image: linear-gradient(to bottom, #282a2d, #242628);
+    box-shadow: none;
   }
 
   headerbar .title, .titlebar .title {
@@ -65,31 +65,53 @@
 
   headerbar button.flat:not(.suggested-action):not(.destructive-action):hover,
   headerbar button.flat:not(.suggested-action):not(.destructive-action):checked {
-    background-color: #414346;
+    background-color: #373a3e;
+  }
+
+  button.suggested-action {
+    background-color: #3a3e43;
+    background-image: none;
+    color: #e3e6e9;
+    border-color: transparent;
+    border-radius: 6px;
+  }
+
+  button.suggested-action:hover {
+    background-color: #42464b;
+  }
+
+  button.suggested-action:active {
+    background-color: #292c30;
   }
 
   popover > contents {
-    background-color: #27292c;
-    color: #e0e6eb;
-    border: 1px solid #111214;
-    border-radius: 4px;
+    background-color: #303337;
+    color: #e3e6e9;
+    border: 1px solid #50555b;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
   }
 
-  popover.menu modelbutton:hover, popover.menu modelbutton:focus {
-    background-color: #345471;
+  popover.menu modelbutton:hover {
+    background-color: #3a3e43;
+    border-radius: 6px;
+  }
+
+  popover.menu modelbutton:focus {
+    background-color: #3d5770;
     color: #f4f7fa;
-    border-radius: 3px;
+    border-radius: 6px;
   }
 
   popover.menu modelbutton:disabled {
-    color: #939aa2;
+    color: #adb4bd;
   }
 
   popover.menu separator {
     background-color: #42454a;
   }
 
-  /* The 14px artwork sits inside a 24px title button. */
+  /* The 16px artwork sits inside a 24px title button. */
   button.titlebutton.minimize,
   button.titlebutton.maximize,
   button.titlebutton.close,
@@ -101,14 +123,14 @@
     margin: 0;
     padding: 0;
     border: 0;
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: none;
     transition: none;
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("../titlebuttons/rest.svg");
-    background-size: 14px 14px;
+    background-size: 16px 16px;
     color: transparent;
     -gtk-icon-shadow: none;
   }
@@ -193,6 +215,6 @@
 
   /* GTK 4 clips the title bar to the outer window's corners. */
   window.background.csd:not(.maximized):not(.fullscreen) {
-    border-radius: 4px 4px 0 0;
+    border-radius: 10px;
   }
 }
