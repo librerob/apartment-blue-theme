@@ -15,4 +15,6 @@ Reserve blue for selection, focus, progress, and switches. Use shades of graphit
 
 Use 6 px corners for controls and selections, and 10 px for windows and floating surfaces. These replace the usual 3 px and 4 px corners. Use 4, 8, 12, 16, and 24 logical px for spacing, with 8 px menu row padding and 16 px around notification content. The 0.5.2 styles use a mix of inherited spacing and local values.
 
-Title controls use a flat circle within the existing 24 px target. A quiet fill marks rest, and a thin glyph marks hover and press.
+Title controls use a flat circle within the existing 24 px target. Thin graphite glyphs identify each control at rest and brighten on hover or press.
+
+Folder icons use a steel-blue face from `#607A91` to `#4A637A`, with a `#34495C` edge and light symbols. Sidebar icons keep their simpler line artwork.
