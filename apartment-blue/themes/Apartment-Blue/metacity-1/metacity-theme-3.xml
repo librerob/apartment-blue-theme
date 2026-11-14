@@ -85,14 +85,38 @@
   <draw_ops name="restore">
     <image filename="restore.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
+  <draw_ops name="close_rest">
+    <image filename="../titlebuttons/close-rest.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
+  </draw_ops>
+  <draw_ops name="close_unfocused">
+    <image filename="../titlebuttons/close-unfocused.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
+  </draw_ops>
   <draw_ops name="close_pressed">
     <image filename="../titlebuttons/close-pressed.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
+  </draw_ops>
+  <draw_ops name="minimize_rest">
+    <image filename="../titlebuttons/minimize-rest.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
+  </draw_ops>
+  <draw_ops name="minimize_unfocused">
+    <image filename="../titlebuttons/minimize-unfocused.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="minimize_pressed">
     <image filename="../titlebuttons/minimize-pressed.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
+  <draw_ops name="maximize_rest">
+    <image filename="../titlebuttons/maximize-rest.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
+  </draw_ops>
+  <draw_ops name="maximize_unfocused">
+    <image filename="../titlebuttons/maximize-unfocused.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
+  </draw_ops>
   <draw_ops name="maximize_pressed">
     <image filename="../titlebuttons/maximize-pressed.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
+  </draw_ops>
+  <draw_ops name="restore_rest">
+    <image filename="../titlebuttons/restore-rest.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
+  </draw_ops>
+  <draw_ops name="restore_unfocused">
+    <image filename="../titlebuttons/restore-unfocused.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
   </draw_ops>
   <draw_ops name="restore_pressed">
     <image filename="../titlebuttons/restore-pressed.svg" x="(width - 16) / 2" y="(height - 16) / 2" width="16" height="16" />
@@ -104,13 +128,13 @@
     <button function="menu" state="normal" draw_ops="menu" />
     <button function="menu" state="prelight" draw_ops="menu" />
     <button function="menu" state="pressed" draw_ops="menu" />
-    <button function="minimize" state="normal" draw_ops="rest" />
+    <button function="minimize" state="normal" draw_ops="minimize_rest" />
     <button function="minimize" state="prelight" draw_ops="minimize" />
     <button function="minimize" state="pressed" draw_ops="minimize_pressed" />
-    <button function="maximize" state="normal" draw_ops="rest" />
+    <button function="maximize" state="normal" draw_ops="maximize_rest" />
     <button function="maximize" state="prelight" draw_ops="maximize" />
     <button function="maximize" state="pressed" draw_ops="maximize_pressed" />
-    <button function="close" state="normal" draw_ops="rest" />
+    <button function="close" state="normal" draw_ops="close_rest" />
     <button function="close" state="prelight" draw_ops="close" />
     <button function="close" state="pressed" draw_ops="close_pressed" />
     <button function="shade" state="normal" draw_ops="rest" />
@@ -133,6 +157,7 @@
     <button function="unstick" state="pressed" draw_ops="unstick" />
   </frame_style>
   <frame_style name="maximized_active" geometry="maximized" parent="active">
+    <button function="maximize" state="normal" draw_ops="restore_rest" />
     <button function="maximize" state="prelight" draw_ops="restore" />
     <button function="maximize" state="pressed" draw_ops="restore_pressed" />
   </frame_style>
@@ -143,13 +168,13 @@
     <button function="menu" state="normal" draw_ops="menu" />
     <button function="menu" state="prelight" draw_ops="menu" />
     <button function="menu" state="pressed" draw_ops="menu" />
-    <button function="minimize" state="normal" draw_ops="unfocused" />
+    <button function="minimize" state="normal" draw_ops="minimize_unfocused" />
     <button function="minimize" state="prelight" draw_ops="minimize" />
     <button function="minimize" state="pressed" draw_ops="minimize_pressed" />
-    <button function="maximize" state="normal" draw_ops="unfocused" />
+    <button function="maximize" state="normal" draw_ops="maximize_unfocused" />
     <button function="maximize" state="prelight" draw_ops="maximize" />
     <button function="maximize" state="pressed" draw_ops="maximize_pressed" />
-    <button function="close" state="normal" draw_ops="unfocused" />
+    <button function="close" state="normal" draw_ops="close_unfocused" />
     <button function="close" state="prelight" draw_ops="close" />
     <button function="close" state="pressed" draw_ops="close_pressed" />
     <button function="shade" state="normal" draw_ops="unfocused" />
@@ -172,6 +197,7 @@
     <button function="unstick" state="pressed" draw_ops="unstick" />
   </frame_style>
   <frame_style name="maximized_inactive" geometry="maximized" parent="inactive">
+    <button function="maximize" state="normal" draw_ops="restore_unfocused" />
     <button function="maximize" state="prelight" draw_ops="restore" />
     <button function="maximize" state="pressed" draw_ops="restore_pressed" />
   </frame_style>
