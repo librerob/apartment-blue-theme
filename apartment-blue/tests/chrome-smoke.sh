@@ -38,21 +38,15 @@ capture() {
   fi
 }
 
-expect_glyph() {
-  local image=$1 expected=$2
+expect_resting_glyph() {
+  local image=$1
   local crop="$((12 * SCALE))x$((12 * SCALE))+$((button_x - 6 * SCALE))+$((button_y - 6 * SCALE))"
-  local bright
-  bright=$(convert "$image" -crop "$crop" +repage -colorspace gray -threshold 54% -format '%[fx:round(mean*w*h)]' info:)
-  if [ "$expected" = visible ]; then
-    if [ "$bright" -lt "$SCALE" ]; then
-      echo "No glyph in $image at $crop ($bright bright pixels)" >&2
-      return 1
-    fi
-  else
-    if [ "$bright" -ne 0 ]; then
-      echo "Unexpected glyph in $image at $crop ($bright bright pixels)" >&2
-      return 1
-    fi
+  local visible bright
+  visible=$(convert "$image" -crop "$crop" +repage -colorspace gray -threshold 36% -format '%[fx:round(mean*w*h)]' info:)
+  bright=$(convert "$image" -crop "$crop" +repage -colorspace gray -threshold 69% -format '%[fx:round(mean*w*h)]' info:)
+  if [ "$visible" -lt "$SCALE" ] || [ "$bright" -ne 0 ]; then
+    echo "Expected a subdued glyph in $image at $crop ($visible visible, $bright bright)" >&2
+    return 1
   fi
 }
 
@@ -112,7 +106,7 @@ for kind in muffin gtk3 gtk4 adw; do
   for item in '0 close #e3e6e9' '1 maximize #e3e6e9' '2 minimize #e3e6e9'; do
     read -r index control color <<< "$item"
     aim "$index"
-    expect_glyph "evidence/chrome-$kind.png" hidden
+    expect_resting_glyph "evidence/chrome-$kind.png"
     sleep 0.35
     capture "-$control-hover"
     expect_hover_color "evidence/chrome-$kind-$control-hover.png" "$color"
