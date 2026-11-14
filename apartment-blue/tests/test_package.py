@@ -16,17 +16,25 @@ ICONS = ROOT / "icons/Apartment-Blue"
 
 class PackageTest(unittest.TestCase):
     def test_title_button_geometry(self):
-        names = ("rest", "unfocused", "close", "minimize", "maximize", "restore",
-                 "close-pressed", "minimize-pressed", "maximize-pressed", "restore-pressed")
+        controls = ("close", "minimize", "maximize", "restore")
+        states = {"-rest": "#9ba1a8", "-unfocused": "#747a81",
+                  "": "#e3e6e9", "-pressed": "#e3e6e9"}
         ns = {"svg": "http://www.w3.org/2000/svg"}
         circles = []
-        for name in names:
-            with self.subTest(state=name):
-                root = ET.parse(THEME / f"titlebuttons/{name}.svg").getroot()
-                self.assertEqual((root.get("width"), root.get("height")), ("64", "64"))
-                self.assertEqual(root.get("viewBox"), "0 0 16 16")
-                circle, = root.findall(".//svg:circle", ns)
-                circles.append(tuple(circle.get(key) for key in ("cx", "cy", "r", "stroke-width")))
+        for control in controls:
+            glyphs = set()
+            for suffix, stroke in states.items():
+                name = f"{control}{suffix}"
+                with self.subTest(state=name):
+                    root = ET.parse(THEME / f"titlebuttons/{name}.svg").getroot()
+                    self.assertEqual((root.get("width"), root.get("height")), ("64", "64"))
+                    self.assertEqual(root.get("viewBox"), "0 0 16 16")
+                    circle, = root.findall(".//svg:circle", ns)
+                    circles.append(tuple(circle.get(key) for key in ("cx", "cy", "r", "stroke-width")))
+                    glyph, = root.findall(".//svg:path", ns)
+                    self.assertEqual(glyph.get("stroke"), stroke)
+                    glyphs.add(glyph.get("d"))
+            self.assertEqual(len(glyphs), 1)
         self.assertEqual(set(circles), {("8", "8", "7", None)})
 
     def test_css_imports(self):

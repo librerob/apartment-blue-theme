@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -eu
 
-# The CI screenshots use a named sample folder.
-preview_home="$HOME/Robin"
+# CI sets a disposable home named Robin for the file manager screenshots.
+preview_home="$HOME"
 mkdir -p "$preview_home"/{Desktop,Documents,Downloads,Music,Pictures,Public,Templates,Videos}
 
 export GDK_SCALE="$SCALE" GTK_THEME=Apartment-Blue

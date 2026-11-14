@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.1
+
+- Simplify the blue folders and keep the small sidebar icons crisp.
+- Show quiet window-control symbols at rest.
+- Replace the bright Cinnamon popup border with a thin graphite edge.
+
 ## 0.6.0
 
 - Use a shared graphite palette for windows, panels, and menus.

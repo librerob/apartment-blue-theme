@@ -129,7 +129,6 @@
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../titlebuttons/rest.svg");
     background-size: 16px 16px;
     color: transparent;
     -gtk-icon-shadow: none;
@@ -141,13 +140,44 @@
     min-height: 24px;
   }
 
+  button.titlebutton.minimize,
+  windowcontrols button.minimize {
+    background-image: url("../titlebuttons/minimize-rest.svg");
+  }
+
+  button.titlebutton.maximize,
+  windowcontrols button.maximize {
+    background-image: url("../titlebuttons/maximize-rest.svg");
+  }
+
+  button.titlebutton.close,
+  windowcontrols button.close {
+    background-image: url("../titlebuttons/close-rest.svg");
+  }
+
+  .maximized button.titlebutton.maximize,
+  .maximized windowcontrols button.maximize {
+    background-image: url("../titlebuttons/restore-rest.svg");
+  }
+
   button.titlebutton.minimize:backdrop,
+  windowcontrols button.minimize:backdrop {
+    background-image: url("../titlebuttons/minimize-unfocused.svg");
+  }
+
   button.titlebutton.maximize:backdrop,
+  windowcontrols button.maximize:backdrop {
+    background-image: url("../titlebuttons/maximize-unfocused.svg");
+  }
+
   button.titlebutton.close:backdrop,
-  windowcontrols button.minimize:backdrop,
-  windowcontrols button.maximize:backdrop,
   windowcontrols button.close:backdrop {
-    background-image: url("../titlebuttons/unfocused.svg");
+    background-image: url("../titlebuttons/close-unfocused.svg");
+  }
+
+  .maximized button.titlebutton.maximize:backdrop,
+  .maximized windowcontrols button.maximize:backdrop {
+    background-image: url("../titlebuttons/restore-unfocused.svg");
   }
 
   windowcontrols button.minimize > image,

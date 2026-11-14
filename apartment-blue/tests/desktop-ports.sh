@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# The CI screenshots use a named sample folder.
-preview_home="$HOME/Robin"
+# CI sets a disposable home named Robin for the file manager screenshots.
+preview_home="$HOME"
 mkdir -p "$preview_home"/{Desktop,Documents,Downloads,Music,Pictures,Public,Templates,Videos}
 
 mkdir -p "$HOME/.themes" "$HOME/.icons"
