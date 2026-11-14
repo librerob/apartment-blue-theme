@@ -2,9 +2,9 @@
 
 A dark theme for Cinnamon, MATE and Xfce with graphite window buttons and blue folder icons.
 
-![Apartment Blue 0.5.2 on Cinnamon](apartment-blue/screenshots/cinnamon.jpg)
+![Apartment Blue 0.6.0 on Cinnamon](apartment-blue/screenshots/cinnamon-0.6.0-cover.png)
 
-[Cinnamon menu, calendar and notifications](apartment-blue/screenshots/cinnamon-shell.jpg) · [Caja on MATE](apartment-blue/screenshots/mate.jpg) · [Thunar on Xfce](apartment-blue/screenshots/xfce.jpg) · [Window button states at 1×](apartment-blue/screenshots/1x-muffin.png)
+[Cinnamon screenshots at 1× and 2×](apartment-blue/screenshots/README.md) · [Caja on MATE](apartment-blue/mate-0.6.0.png) · [Thunar on Xfce](apartment-blue/xfce-0.6.0.png) · [Celluloid on Cinnamon](apartment-blue/celluloid-0.6.0.png)
 
 ## Install
 
