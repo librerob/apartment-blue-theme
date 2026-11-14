@@ -39,11 +39,18 @@
   color: #e3e6e9;
 }
 
-.popup-menu-content {
+.menu, .menu-background {
   background-color: #303337;
-  border: 0;
+  border: 1px solid #50555b;
   border-radius: 10px;
+  border-image: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
+  color: #e3e6e9;
+}
+
+.popup-menu-content {
+  background-color: transparent;
+  border: 0;
 }
 
 .popup-menu-boxpointer, .popup-menu {
