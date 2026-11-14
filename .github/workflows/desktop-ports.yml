@@ -46,6 +46,9 @@ jobs:
           GDK_SCALE: ${{ matrix.scale }}
         run: |
           sudo hostname Robin
+          export HOME="$(mktemp -d)/Robin"
+          export XDG_CONFIG_HOME="$HOME/.config" XDG_DATA_HOME="$HOME/.local/share"
+          mkdir -p "$HOME"
           mkdir -p evidence
           xvfb-run -a -s '-screen 0 1920x1080x24' dbus-run-session -- bash tests/desktop-ports.sh
       - uses: actions/upload-artifact@v4
