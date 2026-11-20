@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Replace the flat grey window-button circles with round glass orbs in the style of Black MATE: grey at rest, red, green and amber on hover.
+- Replace the flat grey window-button circles with glass beads in the style of Black MATE: a steel-blue core at rest, and an ember rose, glacier violet or aurora teal glow on hover. The beads carry no symbols.
 
 ## 0.6.1
 

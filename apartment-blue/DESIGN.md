@@ -15,6 +15,6 @@ Reserve blue for selection, focus, progress, and switches. Use shades of graphit
 
 Use 6 px corners for controls and selections, and 10 px for windows and floating surfaces. These replace the usual 3 px and 4 px corners. Use 4, 8, 12, 16, and 24 logical px for spacing, with 8 px menu row padding and 16 px around notification content. The 0.5.2 styles use a mix of inherited spacing and local values.
 
-Title controls are round glass orbs in a thin ring within the existing 24 px target, after the Black MATE theme. They rest as grey orbs, turn red (close), green (maximize) or amber (minimize) with a dark glyph on hover, and dim when the window is unfocused.
+Title controls are round glass beads in a thin ring within the existing 24 px target, after the Black MATE theme. They rest with a steel-blue core, glow ember rose (close), glacier violet (maximize) or aurora teal (minimize) on hover, sink when pressed, and become empty glass rings when the window is unfocused.
 
 Folder icons use a steel-blue face from `#607A91` to `#4A637A`, with a `#34495C` edge and light symbols. Sidebar icons keep their simpler line artwork.

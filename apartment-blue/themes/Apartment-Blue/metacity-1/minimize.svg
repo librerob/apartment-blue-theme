@@ -2,19 +2,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16">
   <g transform="translate(0 0)">
     <defs>
-      <radialGradient id="o992296b" cx="0.5" cy="0.35" r="0.8">
-        <stop offset="0" stop-color="#3b3e42" />
-        <stop offset="1" stop-color="#1b1d20" />
+      <radialGradient id="o992296b" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0" stop-color="#101215" />
+        <stop offset="0.7" stop-color="#16181c" />
+        <stop offset="1" stop-color="#4ff0da" stop-opacity="0.55" />
       </radialGradient>
       <radialGradient id="o992296j" cx="0.42" cy="0.3" r="0.85">
-        <stop offset="0" stop-color="#ffdc80" />
-        <stop offset="0.55" stop-color="#f0a81c" />
-        <stop offset="1" stop-color="#a86408" />
+        <stop offset="0" stop-color="#b9fff3" />
+        <stop offset="0.55" stop-color="#2fd6c0" />
+        <stop offset="1" stop-color="#0b5f63" />
       </radialGradient>
+      <linearGradient id="o992296r" x2="0" y2="1">
+        <stop offset="0" stop-color="#4ff0da" stop-opacity="0.7" />
+        <stop offset="1" stop-color="#4ff0da" stop-opacity="0.2" />
+      </linearGradient>
+      <linearGradient id="o992296g" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0.6" />
+        <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+      </linearGradient>
     </defs>
     <circle cx="8" cy="8" r="7.3" fill="url(#o992296b)" />
-    <circle cx="8" cy="8" r="7.3" fill="none" stroke="#ffffff" stroke-opacity="0.26" stroke-width="0.7" />
+    <circle cx="8" cy="8" r="7.3" fill="none" stroke="url(#o992296r)" stroke-width="0.8" />
     <circle cx="8" cy="8" r="5.2" fill="url(#o992296j)" />
-    <path d="M5.25 8h5.5" fill="none" stroke="#1b1d20" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" />
+    <ellipse cx="8" cy="5.5" rx="3.4" ry="1.9" fill="url(#o992296g)" />
   </g>
 </svg>

@@ -9,18 +9,27 @@
   <rect width="24" height="32" fill="url(#bar)" />
   <g transform="translate(4 8)">
     <defs>
-      <radialGradient id="o360287b" cx="0.5" cy="0.35" r="0.8">
-        <stop offset="0" stop-color="#3b3e42" />
-        <stop offset="1" stop-color="#1b1d20" />
+      <radialGradient id="o360287b" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0" stop-color="#16181c" />
+        <stop offset="1" stop-color="#202328" />
       </radialGradient>
       <radialGradient id="o360287j" cx="0.42" cy="0.3" r="0.85">
-        <stop offset="0" stop-color="#9a9ea3" />
-        <stop offset="0.55" stop-color="#5b5f64" />
-        <stop offset="1" stop-color="#3a3d41" />
+        <stop offset="0" stop-color="#9cc0dd" />
+        <stop offset="0.55" stop-color="#456680" />
+        <stop offset="1" stop-color="#1c2a36" />
       </radialGradient>
+      <linearGradient id="o360287r" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0.38" />
+        <stop offset="1" stop-color="#ffffff" stop-opacity="0.06" />
+      </linearGradient>
+      <linearGradient id="o360287g" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0.6" />
+        <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+      </linearGradient>
     </defs>
     <circle cx="8" cy="8" r="7.3" fill="url(#o360287b)" />
-    <circle cx="8" cy="8" r="7.3" fill="none" stroke="#ffffff" stroke-opacity="0.26" stroke-width="0.7" />
+    <circle cx="8" cy="8" r="7.3" fill="none" stroke="url(#o360287r)" stroke-width="0.8" />
     <circle cx="8" cy="8" r="5.2" fill="url(#o360287j)" />
+    <ellipse cx="8" cy="5.5" rx="3.4" ry="1.9" fill="url(#o360287g)" />
   </g>
 </svg>

@@ -17,7 +17,7 @@ ICONS = ROOT / "icons/Apartment-Blue"
 class PackageTest(unittest.TestCase):
     def test_title_button_geometry(self):
         controls = ("close", "minimize", "maximize", "restore")
-        states = {"-rest": None, "-unfocused": None, "": "#1b1d20", "-pressed": "#1b1d20"}
+        states = {"-rest": None, "-unfocused": None, "": "#14161a", "-pressed": "#14161a"}
         ns = {"svg": "http://www.w3.org/2000/svg"}
         orbs = []
         for control in controls:
@@ -31,11 +31,9 @@ class PackageTest(unittest.TestCase):
                     orbs.append(tuple((c.get("cx"), c.get("cy"), c.get("r"))
                                       for c in root.findall(".//svg:circle", ns)))
                     paths = root.findall(".//svg:path", ns)
-                    # Quiet grey orbs at rest; the glyph shows on hover and press.
-                    self.assertEqual(len(paths), 0 if stroke is None else 1)
-                    for glyph in paths:
-                        self.assertEqual(glyph.get("stroke"), stroke)
-                        glyphs.add(glyph.get("d"))
+                    # Clean beads: no symbols inside, only colour and light change by state.
+                    self.assertEqual(len(paths), 0)
+                    glyphs.update(glyph.get("d") for glyph in paths)
             self.assertLessEqual(len(glyphs), 1)
         self.assertEqual(set(orbs), {(("8", "8", "7.3"),) * 2 + (("8", "8", "5.2"),)})
 
