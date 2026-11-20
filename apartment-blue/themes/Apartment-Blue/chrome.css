@@ -5,15 +5,15 @@ headerbar:not(.flat), .titlebar:not(.flat) {
   border: 0;
   border-radius: 10px 10px 0 0;
   color: #e3e6e9;
-  background-color: #171819;
-  background-image: linear-gradient(to bottom, #1b1c1e, #171819);
+  background-color: #292c30;
+  background-image: linear-gradient(to bottom, #2e3134, #292c30);
   box-shadow: none;
 }
 
 headerbar:not(.flat):backdrop, .titlebar:not(.flat):backdrop {
   color: #adb4bd;
-  background-color: #121314;
-  background-image: linear-gradient(to bottom, #141516, #121314);
+  background-color: #242628;
+  background-image: linear-gradient(to bottom, #282a2d, #242628);
   box-shadow: none;
 }
 
@@ -39,11 +39,11 @@ headerbar:not(.flat) button:not(.titlebutton) {
 
 headerbar button.flat:not(.suggested-action):not(.destructive-action):hover,
 headerbar button.flat:not(.suggested-action):not(.destructive-action):checked {
-  background-color: #26282b;
+  background-color: #373a3e;
 }
 
 button.suggested-action {
-  background-color: #2a2d30;
+  background-color: #3a3e43;
   background-image: none;
   color: #e3e6e9;
   border-color: transparent;
@@ -55,19 +55,19 @@ button.suggested-action:hover {
 }
 
 button.suggested-action:active {
-  background-color: #171819;
+  background-color: #292c30;
 }
 
 popover > contents {
-  background-color: #1d1f21;
+  background-color: #303337;
   color: #e3e6e9;
-  border: 1px solid #3a3e42;
+  border: 1px solid #50555b;
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
 }
 
 popover.menu modelbutton:hover {
-  background-color: #2a2d30;
+  background-color: #3a3e43;
   border-radius: 6px;
 }
 
@@ -82,5 +82,5 @@ popover.menu modelbutton:disabled {
 }
 
 popover.menu separator {
-  background-color: #2e3033;
+  background-color: #42454a;
 }

@@ -2,8 +2,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="32" viewBox="0 0 10 32">
   <defs>
     <linearGradient id="bar" x2="0" y2="1">
-      <stop offset="0" stop-color="#1b1c1e" />
-      <stop offset="1" stop-color="#171819" />
+      <stop offset="0" stop-color="#2e3134" />
+      <stop offset="1" stop-color="#292c30" />
     </linearGradient>
   </defs>
   <path d="M0 32V10A10 10 0 0 1 10 0H10V32Z" fill="url(#bar)" />

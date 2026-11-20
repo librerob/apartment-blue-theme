@@ -26,12 +26,12 @@
   </frame_geometry>
   <frame_geometry name="border" parent="normal" has_title="false" hide_buttons="true" rounded_top_left="0" rounded_top_right="0" />
   <draw_ops name="border">
-    <rectangle x="0" y="0" width="width" height="height" color="#121314" filled="true" />
+    <rectangle x="0" y="0" width="width" height="height" color="#242628" filled="true" />
   </draw_ops>
   <draw_ops name="bar_active">
     <gradient type="vertical" x="0" y="0" width="width" height="height">
-      <color value="#1b1c1e" />
-      <color value="#171819" />
+      <color value="#2e3134" />
+      <color value="#292c30" />
     </gradient>
   </draw_ops>
   <draw_ops name="title_active">
@@ -39,8 +39,8 @@
   </draw_ops>
   <draw_ops name="bar_inactive">
     <gradient type="vertical" x="0" y="0" width="width" height="height">
-      <color value="#141516" />
-      <color value="#121314" />
+      <color value="#282a2d" />
+      <color value="#242628" />
     </gradient>
   </draw_ops>
   <draw_ops name="title_inactive">

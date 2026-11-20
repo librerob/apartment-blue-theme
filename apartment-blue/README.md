@@ -1,6 +1,6 @@
 # Apartment Blue
 
-A dark theme for Cinnamon, MATE and Xfce with near-black title bars, flat glyph window buttons and blue folder icons. See [NOTICE.md](NOTICE.md) for artwork credits.
+A dark theme for Cinnamon, MATE and Xfce with charcoal title bars, graphite window buttons and blue folder icons. See [NOTICE.md](NOTICE.md) for artwork credits.
 
 See [DESIGN.md](DESIGN.md) for the colors and spacing.
 
@@ -36,8 +36,8 @@ The installer checks that the theme, icons and wallpaper still match an
 installation it knows. Move modified files aside before replacing them.
 The optional libadwaita override has its own apply and remove commands below.
 
-The window buttons are bare glyphs in a 24 pixel click target. A rounded square
-appears on hover, and in app-drawn headers also on keyboard focus. The buttons follow the window manager's layout.
+The silver-edged window buttons are 12 pixels across at 100% scale. The glyphs
+appear on hover, and in app-drawn headers they also appear on keyboard focus. The buttons follow the window manager's layout.
 
 ## Libadwaita
 

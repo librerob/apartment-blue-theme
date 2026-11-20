@@ -2,8 +2,7 @@
 
 ## Unreleased
 
-- Move to a black, Black MATE style palette: near-black title bars, windows and menus.
-- Replace the grey circular window buttons with bare glyphs and a rounded-square hover; close turns muted red.
+- Replace the flat grey window-button circles with round glass orbs in the style of Black MATE: grey at rest, red, green and amber on hover.
 
 ## 0.6.1
 

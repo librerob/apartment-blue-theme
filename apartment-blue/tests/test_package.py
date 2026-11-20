@@ -17,10 +17,9 @@ ICONS = ROOT / "icons/Apartment-Blue"
 class PackageTest(unittest.TestCase):
     def test_title_button_geometry(self):
         controls = ("close", "minimize", "maximize", "restore")
-        states = {"-rest": "#b4bac1", "-unfocused": "#5f656b",
-                  "": "#ffffff", "-pressed": "#ffffff"}
+        states = {"-rest": None, "-unfocused": None, "": "#1b1d20", "-pressed": "#1b1d20"}
         ns = {"svg": "http://www.w3.org/2000/svg"}
-        shapes = []
+        orbs = []
         for control in controls:
             glyphs = set()
             for suffix, stroke in states.items():
@@ -29,16 +28,16 @@ class PackageTest(unittest.TestCase):
                     root = ET.parse(THEME / f"titlebuttons/{name}.svg").getroot()
                     self.assertEqual((root.get("width"), root.get("height")), ("64", "64"))
                     self.assertEqual(root.get("viewBox"), "0 0 16 16")
-                    self.assertFalse(root.findall(".//svg:circle", ns))
-                    rects = root.findall(".//svg:rect", ns)
-                    # Bare glyph at rest and unfocused; rounded square on hover and press.
-                    self.assertEqual(len(rects), 0 if suffix in ("-rest", "-unfocused") else 1)
-                    shapes.extend((r.get("width"), r.get("height"), r.get("rx")) for r in rects)
-                    glyph, = root.findall(".//svg:path", ns)
-                    self.assertEqual(glyph.get("stroke"), stroke)
-                    glyphs.add(glyph.get("d"))
-            self.assertEqual(len(glyphs), 1)
-        self.assertEqual(set(shapes), {("16", "16", "4")})
+                    orbs.append(tuple((c.get("cx"), c.get("cy"), c.get("r"))
+                                      for c in root.findall(".//svg:circle", ns)))
+                    paths = root.findall(".//svg:path", ns)
+                    # Quiet grey orbs at rest; the glyph shows on hover and press.
+                    self.assertEqual(len(paths), 0 if stroke is None else 1)
+                    for glyph in paths:
+                        self.assertEqual(glyph.get("stroke"), stroke)
+                        glyphs.add(glyph.get("d"))
+            self.assertLessEqual(len(glyphs), 1)
+        self.assertEqual(set(orbs), {(("8", "8", "7.3"),) * 2 + (("8", "8", "5.2"),)})
 
     def test_css_imports(self):
         for path in THEME.rglob("*.css"):

@@ -1,10 +1,10 @@
-@define-color apartment_surface #121314;
-@define-color apartment_panel #171819;
-@define-color apartment_raised #1d1f21;
-@define-color apartment_view #0b0c0d;
+@define-color apartment_surface #242628;
+@define-color apartment_panel #292c30;
+@define-color apartment_raised #303337;
+@define-color apartment_view #1c1e21;
 @define-color apartment_text #e3e6e9;
 @define-color apartment_muted #adb4bd;
-@define-color apartment_border #3a3e42;
+@define-color apartment_border #50555b;
 @define-color apartment_selection #3d5770;
 @define-color apartment_selected_text #f4f7fa;
 @define-color apartment_focus #9bbfe0;
@@ -41,7 +41,7 @@ button:not(.titlebutton):not(.close):not(.minimize):not(.maximize):not(.flat):no
 }
 
 button:not(.titlebutton):not(.close):not(.minimize):not(.maximize):not(.flat):not(.image-button):not(.suggested-action):not(.destructive-action):not(:disabled):hover {
-  background-color: #2a2d30;
+  background-color: #3a3e43;
 }
 
 button:not(.titlebutton):not(.close):not(.minimize):not(.maximize):not(.flat):not(.image-button):not(.suggested-action):not(.destructive-action):not(:disabled):active,

@@ -6,21 +6,21 @@
     --accent-bg-color: #3d5770;
     --accent-fg-color: #f4f7fa;
     --accent-color: #9bbfe0;
-    --window-bg-color: #121314;
+    --window-bg-color: #242628;
     --window-fg-color: #e3e6e9;
-    --view-bg-color: #0b0c0d;
+    --view-bg-color: #1c1e21;
     --view-fg-color: #e3e6e9;
-    --headerbar-bg-color: #171819;
+    --headerbar-bg-color: #292c30;
     --headerbar-fg-color: #e3e6e9;
-    --headerbar-backdrop-color: #121314;
-    --sidebar-bg-color: #171819;
+    --headerbar-backdrop-color: #242628;
+    --sidebar-bg-color: #292c30;
     --sidebar-fg-color: #e3e6e9;
-    --sidebar-backdrop-color: #121314;
-    --secondary-sidebar-bg-color: #121314;
+    --sidebar-backdrop-color: #242628;
+    --secondary-sidebar-bg-color: #242628;
     --secondary-sidebar-fg-color: #e3e6e9;
-    --popover-bg-color: #1d1f21;
+    --popover-bg-color: #303337;
     --popover-fg-color: #e3e6e9;
-    --dialog-bg-color: #1d1f21;
+    --dialog-bg-color: #303337;
     --dialog-fg-color: #e3e6e9;
   }
 
@@ -31,15 +31,15 @@
     border: 0;
     border-radius: 10px 10px 0 0;
     color: #e3e6e9;
-    background-color: #171819;
-    background-image: linear-gradient(to bottom, #1b1c1e, #171819);
+    background-color: #292c30;
+    background-image: linear-gradient(to bottom, #2e3134, #292c30);
     box-shadow: none;
   }
 
   headerbar:not(.flat):backdrop, .titlebar:not(.flat):backdrop {
     color: #adb4bd;
-    background-color: #121314;
-    background-image: linear-gradient(to bottom, #141516, #121314);
+    background-color: #242628;
+    background-image: linear-gradient(to bottom, #282a2d, #242628);
     box-shadow: none;
   }
 
@@ -65,11 +65,11 @@
 
   headerbar button.flat:not(.suggested-action):not(.destructive-action):hover,
   headerbar button.flat:not(.suggested-action):not(.destructive-action):checked {
-    background-color: #26282b;
+    background-color: #373a3e;
   }
 
   button.suggested-action {
-    background-color: #2a2d30;
+    background-color: #3a3e43;
     background-image: none;
     color: #e3e6e9;
     border-color: transparent;
@@ -81,19 +81,19 @@
   }
 
   button.suggested-action:active {
-    background-color: #171819;
+    background-color: #292c30;
   }
 
   popover > contents {
-    background-color: #1d1f21;
+    background-color: #303337;
     color: #e3e6e9;
-    border: 1px solid #3a3e42;
+    border: 1px solid #50555b;
     border-radius: 10px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
   }
 
   popover.menu modelbutton:hover {
-    background-color: #2a2d30;
+    background-color: #3a3e43;
     border-radius: 6px;
   }
 
@@ -108,7 +108,7 @@
   }
 
   popover.menu separator {
-    background-color: #2e3033;
+    background-color: #42454a;
   }
 
   /* The 16px artwork sits inside a 24px title button. */
