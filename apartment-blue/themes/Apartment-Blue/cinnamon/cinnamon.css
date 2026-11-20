@@ -1,7 +1,7 @@
 .panel-top, .panel-bottom, .panel-left, .panel-right {
   background-gradient-direction: vertical;
-  background-gradient-start: #292c30;
-  background-gradient-end: #242628;
+  background-gradient-start: #171819;
+  background-gradient-end: #121314;
   border: 0;
   box-shadow: none;
   color: #e3e6e9;
@@ -40,8 +40,8 @@
 }
 
 .menu, .menu-background {
-  background-color: #303337;
-  border: 1px solid #50555b;
+  background-color: #1d1f21;
+  border: 1px solid #3a3e42;
   border-radius: 10px;
   border-image: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
@@ -54,14 +54,14 @@
 }
 
 .popup-menu-boxpointer, .popup-menu {
-  -arrow-background-color: #303337;
-  -arrow-border-color: #50555b;
+  -arrow-background-color: #1d1f21;
+  -arrow-border-color: #3a3e42;
   -arrow-border-width: 1px;
   -arrow-border-radius: 10px;
 }
 
 .popup-menu-item:hover, .menu-favorites-button:hover, .calendar-day-base:hover {
-  background-color: #3a3e43;
+  background-color: #2a2d30;
   border-radius: 6px;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .popup-sub-menu, .menu-applications-box, .menu-favorites-box {
-  background-color: #292c30;
+  background-color: #171819;
   border: 0;
   border-radius: 6px;
 }
@@ -88,10 +88,10 @@
 }
 
 #menu-search-entry, #appmenu-search-entry, .run-dialog-entry {
-  background-color: #1c1e21;
+  background-color: #0b0c0d;
   background-image: none;
   color: #e3e6e9;
-  border: 1px solid #50555b;
+  border: 1px solid #3a3e42;
   border-radius: 6px;
 }
 
@@ -107,7 +107,7 @@
 
 #notification, .notification, .modal-dialog, .switcher-list, .osd-window {
   color: #e3e6e9;
-  background-color: #303337;
+  background-color: #1d1f21;
   border: 0;
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
@@ -123,7 +123,7 @@
 
 StTooltip StLabel {
   color: #f4f7fa;
-  background-color: #1c1e21;
+  background-color: #0b0c0d;
   border: 0;
   border-radius: 6px;
   padding: 4px 6px;
@@ -131,7 +131,7 @@ StTooltip StLabel {
 
 /* The menu used by newer Cinnamon versions has its own appmenu classes. */
 .appmenu-application-button:hover, .appmenu-category-button:hover {
-  background-color: #3a3e43;
+  background-color: #2a2d30;
   border-radius: 6px;
 }
 
@@ -166,13 +166,13 @@ StTooltip StLabel {
 
 .workspace-button {
   color: #e3e6e9;
-  background-color: #242628;
+  background-color: #121314;
   border: 1px solid transparent;
   border-radius: 6px;
 }
 
 .workspace-button:hover {
-  background-color: #3a3e43;
+  background-color: #2a2d30;
 }
 
 .workspace-button:outlined {
@@ -182,8 +182,8 @@ StTooltip StLabel {
 
 .window-list-preview, .grouped-window-list-thumbnail-menu {
   color: #e3e6e9;
-  background-color: #303337;
-  border: 1px solid #50555b;
+  background-color: #1d1f21;
+  border: 1px solid #3a3e42;
   border-radius: 10px;
 }
 
@@ -207,8 +207,8 @@ StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
 
 .popup-separator-menu-item {
   -gradient-height: 1px;
-  -gradient-start: #42454a;
-  -gradient-end: #42454a;
+  -gradient-start: #2e3033;
+  -gradient-end: #2e3033;
   -margin-horizontal: 8px;
 }
 

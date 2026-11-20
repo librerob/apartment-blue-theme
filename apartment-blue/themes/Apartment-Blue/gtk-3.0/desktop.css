@@ -47,7 +47,7 @@
 .mate-panel-menu-bar menubar,
 PanelApplet,
 .xfce4-panel.panel {
-  background-color: #292c30;
+  background-color: #171819;
   background-image: none;
   color: @apartment_text;
 }
@@ -68,7 +68,7 @@ PanelApplet button:not(:disabled):hover,
 #clock-applet-button:not(:disabled):hover,
 #tasklist-button:not(:disabled):hover,
 .xfce4-panel.panel button:not(:disabled):hover {
-  background: #373a3e;
+  background: #26282b;
 }
 
 .mate-panel-menu-bar button:not(:disabled):checked,
@@ -87,6 +87,6 @@ PanelApplet button:not(:disabled):active,
 
 #whiskermenu-window,
 .mintmenu {
-  background-color: #303337;
+  background-color: #1d1f21;
   color: @apartment_text;
 }

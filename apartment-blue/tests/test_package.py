@@ -17,10 +17,10 @@ ICONS = ROOT / "icons/Apartment-Blue"
 class PackageTest(unittest.TestCase):
     def test_title_button_geometry(self):
         controls = ("close", "minimize", "maximize", "restore")
-        states = {"-rest": "#9ba1a8", "-unfocused": "#747a81",
-                  "": "#e3e6e9", "-pressed": "#e3e6e9"}
+        states = {"-rest": "#b4bac1", "-unfocused": "#5f656b",
+                  "": "#ffffff", "-pressed": "#ffffff"}
         ns = {"svg": "http://www.w3.org/2000/svg"}
-        circles = []
+        shapes = []
         for control in controls:
             glyphs = set()
             for suffix, stroke in states.items():
@@ -29,13 +29,16 @@ class PackageTest(unittest.TestCase):
                     root = ET.parse(THEME / f"titlebuttons/{name}.svg").getroot()
                     self.assertEqual((root.get("width"), root.get("height")), ("64", "64"))
                     self.assertEqual(root.get("viewBox"), "0 0 16 16")
-                    circle, = root.findall(".//svg:circle", ns)
-                    circles.append(tuple(circle.get(key) for key in ("cx", "cy", "r", "stroke-width")))
+                    self.assertFalse(root.findall(".//svg:circle", ns))
+                    rects = root.findall(".//svg:rect", ns)
+                    # Bare glyph at rest and unfocused; rounded square on hover and press.
+                    self.assertEqual(len(rects), 0 if suffix in ("-rest", "-unfocused") else 1)
+                    shapes.extend((r.get("width"), r.get("height"), r.get("rx")) for r in rects)
                     glyph, = root.findall(".//svg:path", ns)
                     self.assertEqual(glyph.get("stroke"), stroke)
                     glyphs.add(glyph.get("d"))
             self.assertEqual(len(glyphs), 1)
-        self.assertEqual(set(circles), {("8", "8", "7", None)})
+        self.assertEqual(set(shapes), {("16", "16", "4")})
 
     def test_css_imports(self):
         for path in THEME.rglob("*.css"):

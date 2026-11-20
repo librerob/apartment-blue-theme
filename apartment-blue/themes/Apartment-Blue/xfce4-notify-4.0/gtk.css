@@ -1,5 +1,5 @@
 #XfceNotifyWindow {
-  background-color: #303337;
+  background-color: #1d1f21;
   color: #e3e6e9;
   border: 0;
   border-radius: 10px;
@@ -11,7 +11,7 @@
 }
 
 #XfceNotifyWindow button:hover {
-  background: #3a3e43;
+  background: #2a2d30;
   border-radius: 6px;
 }
 

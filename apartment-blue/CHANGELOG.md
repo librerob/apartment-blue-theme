@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Move to a black, Black MATE style palette: near-black title bars, windows and menus.
+- Replace the grey circular window buttons with bare glyphs and a rounded-square hover; close turns muted red.
+
 ## 0.6.1
 
 - Simplify the blue folders and keep the small sidebar icons crisp.

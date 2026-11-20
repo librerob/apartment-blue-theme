@@ -4,9 +4,9 @@
 @import url("../window-controls.css");
 @import url("desktop.css");
 
-@define-color theme_bg_color #242628;
+@define-color theme_bg_color #121314;
 @define-color theme_fg_color #e3e6e9;
-@define-color theme_base_color #1c1e21;
+@define-color theme_base_color #0b0c0d;
 @define-color theme_text_color #e3e6e9;
 @define-color theme_selected_bg_color #3d5770;
 @define-color theme_selected_fg_color #f4f7fa;
@@ -73,15 +73,15 @@ window.ssd headerbar.default-decoration button.titlebutton image {
 }
 
 menu {
-  background-color: #303337;
+  background-color: #1d1f21;
   color: @apartment_text;
-  border: 1px solid #50555b;
+  border: 1px solid #3a3e42;
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
 }
 
 menuitem:hover, modelbutton:hover {
-  background-color: #3a3e43;
+  background-color: #2a2d30;
   border-radius: 6px;
 }
 
@@ -96,5 +96,5 @@ menuitem:disabled {
 }
 
 menu separator {
-  background-color: #42454a;
+  background-color: #2e3033;
 }
